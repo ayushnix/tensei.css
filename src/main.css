@@ -177,6 +177,14 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+/* although text-align: justify might look nice, don't use it because it hurts
+ * readability for people with dyslexia
+ * https://archive.ph/NRM5I */
+body {
+  /* prevent text overflow by wrapping text when needed */
+  overflow-wrap: break-word;
+}
 /* --------------------------------- SCREEN --------------------------------- */
 
 @media screen {
@@ -214,6 +222,25 @@ html {
       color-scheme: dark;
     }
   }
+
+  body {
+    background-color: var(--bg-text);
+    color: var(--fg-text);
+
+    /* automatically add margins to elements when their max-width is defined */
+    margin: auto;
+  }
+
+  /* handheld devices with a screen smaller than the 1st generation iPhone SE
+   * should have full hyphenation enabled to increase the number of characters
+   * displayed on a single line of text */
+  @media (max-width: 20em) {
+    body {
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  }
 }
 
 /* ---------------------------------- PRINT --------------------------------- */
@@ -223,5 +250,10 @@ html {
     /* never use sans-serif fonts on print unless it's possible to ensure that
      * the PDF will be viewed on screen */
     font: 100% / var(--height-text-print) var(--serif-font);
+  }
+
+  body {
+    background-color: var(--bg-print);
+    color: var(--fg-print);
   }
 }
