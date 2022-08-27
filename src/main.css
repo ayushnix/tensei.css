@@ -35,4 +35,30 @@
    * breakpoints
    * https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/ */
   --base-font-size: clamp(1rem, calc(0.923rem + 0.315vw), 1.125rem);
+
+  /* make <h*> sizes consistent and ignore the visual-only implementation of
+   * the HTML5 document outlining algorithm which reduces the size of <h1>
+   * successively when it's nested inside <article>, <aside>, <nav>, and
+   * <section>
+   *
+   * although multiple <h1> tags shouldn't be used on a single HTML page, if
+   * they are, we won't make the size of <h1> different
+   *
+   * the type scale of 1.2 (minor third) has been used to try and stay close to
+   * the browser default size while also increasing the size of <h4>, <h5>, and
+   * <h6> in an attempt to make them more useful
+   * a type scale of 1.333 and above makes headings unusually large and
+   * obnoxious
+   * a height of 111 pixels in <h1> doesn't make sense
+   *
+   * https://www.smashingmagazine.com/2020/01/html5-article-section/ */
+  --h1-size: 2.074rem;
+  --h2-size: 1.728rem;
+  --h3-size: 1.44rem;
+  --h4-size: 1.2rem;
+  --h5-size: 1rem;
+  --h6-size: 0.833rem;
+
+  /* fix the margin of <h1> inside <section>s */
+  --h1-margin: 0.67rem;
 }
