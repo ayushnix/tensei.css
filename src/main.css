@@ -61,4 +61,11 @@
 
   /* fix the margin of <h1> inside <section>s */
   --h1-margin: 0.67rem;
+
+  /* reduce the browser default inline margin of elements such as <dd>, <ol>,
+   * and <ul> on mobile to make room for more characters on a line and
+   * gradually increase the margin to the browser default on desktop sized
+   * viewports */
+  --first-level-space: clamp(1.5rem, calc(1.16rem + 1.7vw), 2.25rem);
+  --second-level-space: clamp(1rem, calc(0.69rem + 1.56vw), 1.69rem);
 }
