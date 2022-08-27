@@ -12,4 +12,18 @@
   --sans-font: sans-serif;
   --mono-font: monospace, monospace;
   --serif-font: serif;
+
+  /* start increasing the base font size of 16px (1rem) from a 390px width
+   * viewport to a maximum of 18px (1.125rem) ending at 1024px width viewport
+   *
+   * this has been done to account for the difference in viewing distance
+   * between a touch device and a monitor display. although 18px on touch
+   * devices is fine, we can get a more characters and words on a single line
+   * on touch devices if we scale back to 16px, which is the minimum acceptable
+   * font size.
+   *
+   * using the clamp function saves us from defining multiple media query
+   * breakpoints
+   * https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/ */
+  --base-font-size: clamp(1rem, calc(0.923rem + 0.315vw), 1.125rem);
 }
