@@ -137,3 +137,91 @@
     --fg-link-v-undl: #dec56780;
   }
 }
+
+/* alphabetical ordering of CSS declarations sounds nice in theory but breaks
+ * down at scale while also hurting readability
+ * https://blog.jim-nielsen.com/2022/ordering-css-delcarations/ */
+
+html {
+  /* switch to border-box instead of content-box to make box size, margins, and
+   * padding more intuitive */
+  box-sizing: border-box;
+
+  /* never use serif fonts on screen unless it's possible to ensure that a
+   * High DPI monitor is in use
+   *
+   * don't switch to serif fonts using min-resolution and
+   * -webkit-min-device-pixel-ratio because they apply even if a user doesn't
+   * have a high DPI screen and simply zooms in the page to a large value
+   *
+   * it's better to just use some CSS/JS and allow users to switch to a serif
+   * font if they want like https://chrismorgan.info/ */
+  font: var(--base-font-size) / var(--height-text) var(--sans-font);
+
+  /* don't inflate text in landscape mode
+   * https://archive.ph/gwL4y */
+  /* stylelint-disable property-no-vendor-prefix */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  /* stylelint-enable property-no-vendor-prefix */
+
+  /* reduce the tab size from 8 to 4 to accomodate more characters */
+  tab-size: 4;
+}
+
+/* facilitates overriding box-sizing if needed and ensures that child elements
+ * inherit the overridden box-sizing property of a parent element */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+/* --------------------------------- SCREEN --------------------------------- */
+
+@media screen {
+  html {
+    /* use browser default color scheme to prevent inappropriately styled content
+     *
+     * this should ideally be defined inside a <meta> tag in HTML documents but
+     * we'll use it here as well in case it isn't */
+    color-scheme: light;
+
+    /* prevent subtle layout shift when switching from a page without a
+     * scrollbar to a page that needs a scrollbar  */
+    overflow-y: scroll;
+  }
+
+  /* reduce the tab-size on mobile devices */
+  @media (max-width: 26em) {
+    html {
+      tab-size: 2;
+    }
+  }
+
+  /* use scrollbar-gutter if supported and reserve space for the scrollbar
+   * this shouldn't affect browsers with overlay scrollbars and should be
+   * safely ignored */
+  @supports (scrollbar-gutter: stable both-edges) {
+    html {
+      overflow-y: auto;
+      scrollbar-gutter: stable both-edges;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+
+@media print {
+  html {
+    /* never use sans-serif fonts on print unless it's possible to ensure that
+     * the PDF will be viewed on screen */
+    font: 100% / var(--height-text-print) var(--serif-font);
+  }
+}
