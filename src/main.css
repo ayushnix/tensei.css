@@ -13,6 +13,15 @@
   --mono-font: monospace, monospace;
   --serif-font: serif;
 
+  /* increase body text line-height to meet the minimum criteria of at least
+   * 1.5 line height and to account for increased padding in some inline
+   * elements such as <code>
+   * reduce line-height of headings to account for their increased font size */
+  --height-text: 1.6;
+  --height-head: 1.2;
+  --height-text-print: 1.3;
+  --height-head-print: 1.1;
+
   /* start increasing the base font size of 16px (1rem) from a 390px width
    * viewport to a maximum of 18px (1.125rem) ending at 1024px width viewport
    *
