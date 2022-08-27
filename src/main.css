@@ -68,4 +68,72 @@
    * viewports */
   --first-level-space: clamp(1.5rem, calc(1.16rem + 1.7vw), 2.25rem);
   --second-level-space: clamp(1rem, calc(0.69rem + 1.56vw), 1.69rem);
+
+  /* the colors have been carefully chosen to meet the following requirements:
+   * - avoid halation issues in dark mode
+   * - distinguishable colors, even for color blind users
+   * - avoid highly saturated colors to prevent Helmholtz-Kohlrausch effect
+   * - the primary colors should be perceptually uniform in CIELAB color space
+   * - avoid layout shift at all costs, even when it results from abrupt color
+   *   changes (blue -> red) due to monitor LED arrangement or sub-pixel
+   *   anti-aliasing
+   * - reduce hyperlink underline opacity to improve readability in cases where
+   *   several hyperlinks are used inside a paragraph
+   *   https://memex.marginalia.nu/log/00-linkpocalypse.gmi
+   *
+   * the default light and dark theme aim for APCA Lc ~90 for body text
+   * the lesser contrast themes aim for APCA Lc ~80 for body text
+   * https://www.myndex.com/APCA/ */
+
+  /* primary colors */
+  --bg-text: #f8f8f8;
+  --fg-text: #2b2b2b; /* Lc 96.7, deliberately higher Lc for better contrast */
+  --fg-link: #0000d9; /* Lc 86.7, relatively higher saturation */
+  --fg-link-v: #40259c; /* Lc 89.7 against bg-text */
+  --fg-ins: #114a1b; /* Lc 89.6 */
+  --fg-del: #7d0800; /* Lc 89.3 */
+  --bg-mark: #fff2ca;
+  --fg-mark: #473021; /* Lc 90.3 */
+
+  /* secondary colors */
+  --bg-form: #fcfcfc;
+  --bg-link-a: #efecf3;
+  --fg-table-grid: #2c2c2c; /* Lc 90, used with bg-link-a on grid tables */
+  --fg-hsb: #535353; /* Lc 82.6, meets APCA requirements at 14px 700 weight */
+  --fg-border: #aaa; /* Lc 41.6, meets APCA requirements for non-text */
+  --fg-border-err: #e36e66; /* Lc 53.8, meets APCA requirements for non-text */
+  --bg-dis: #d4d4d4;
+  --fg-dis: #686868; /* Lc 52.8, meets APCA requirements for disabled text */
+  --fg-link-undl: #0000d980;
+  --fg-link-v-undl: #40259c80;
+
+  /* print colors */
+  --bg-print: #fff;
+  --fg-print: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* primary colors */
+    --bg-text: #1c1c1d;
+    --fg-text: #e6e6e6; /* Lc -90.1 */
+    --fg-link: #f3e6b5; /* Lc -90 */
+    --fg-link-v: #dec567; /* Lc -70.6 against bg-text, deliberately low Lc */
+    --fg-ins: #c9ecff; /* Lc -90.5 */
+    --fg-del: #ffc9c9; /* Lc -80.2, hard to find red against black with Lc >=90 */
+    --bg-mark: #203448;
+    --fg-mark: #d9f1ff; /* Lc -90.5 */
+
+    /* secondary colors */
+    --bg-form: #292929;
+    --bg-link-a: #252524;
+    --fg-table-grid: #e8e8e8; /* Lc -90.1 */
+    --fg-hsb: #d6d6d6; /* Lc -80.1, meets APCA requirements at 14px 700 weight */
+    --fg-border: #7a7a7a; /* Lc -30.4, sufficient contrast in dark mode */
+    --fg-border-err: #e36e66; /* Lc -42.2 */
+    --bg-dis: #111112;
+    --fg-dis: #777774; /* Lc -30, min APCA compliant contrast for disabled text */
+    --fg-link-undl: #f3e6b580;
+    --fg-link-v-undl: #dec56780;
+  }
 }
