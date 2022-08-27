@@ -1,0 +1,15 @@
+/* css-tensei: main.css
+ * SPDX-License-Identifier: NCSA */
+
+:root {
+  /* this font stack respects user choice and uses the fonts set in the web
+   * browser settings
+   *
+   * if a "sensible" default is preferable, the following font stack might work
+   * --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+   * --mono-font: Menlo, "Cascadia Mono", Consolas, "IBM Plex Mono", monospace;
+   * --serif-font: Baskerville, "Cambria", "Source Serif Pro", serif; */
+  --sans-font: sans-serif;
+  --mono-font: monospace, monospace;
+  --serif-font: serif;
+}
