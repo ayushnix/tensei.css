@@ -293,6 +293,31 @@ sup {
   line-height: 0;
 }
 
+/* <dt> should include a top margin to provide even spaces for <dd> when <dd>
+ * has <p> as child element */
+dt {
+  margin: 1rem 0;
+}
+
+/* if <dt> has a hyperlink, we need padding to meet Google a11y requirements of
+ * 48px tap targets
+ * we'll remove margin to mitigate the unintended effect of adding padding and
+ * margin to <dt> */
+dt > a:any-link {
+  display: inline-block;
+  padding: 0.75rem 0;
+  margin: -0.75rem 0;
+}
+
+/* consecutive <dt>'s shouldn't have padding for hyperlinks overlapping */
+dt + dt > a:any-link {
+  padding-top: 0;
+}
+
+dd {
+  margin-left: var(--first-level-space);
+}
+
 /* italicize <del> and <ins> to distinguish them
  * inline quotes look better when italicized */
 del,
