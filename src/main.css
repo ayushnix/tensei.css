@@ -287,6 +287,12 @@ a:link {
   /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 }
 
+/* superscripts and subscripts shouldn't affect line-height in paragraphs */
+sub,
+sup {
+  line-height: 0;
+}
+
 /* italicize <del> and <ins> to distinguish them
  * inline quotes look better when italicized */
 del,
@@ -516,6 +522,11 @@ picture {
   abbr[title],
   u {
     text-underline-offset: 0.25em;
+  }
+
+  /* make superscripts and subscripts with hyperlink children easier to tap */
+  :where(sub, sup) > a:any-link {
+    padding: 0.25em 0.5em;
   }
 
   /* ------------------------------- MULTIMEDIA ------------------------------- */
