@@ -501,6 +501,27 @@ picture {
     line-height: var(--height-head);
   }
 
+  menu,
+  ol,
+  ul {
+    padding-left: var(--first-level-space);
+  }
+
+  /* reduce the padding for nested lists
+   * we've used :is() rather than :where() because the former pseudo-class
+   * creates a specificity of 2 using the rule mentioned below while the latter
+   * pseudo-class has a specificity of 0 which essentially makes it useless in
+   * this context
+   * this can be confirmed using
+   * https://polypane.app/css-specificity-calculator/ */
+  :is(menu, ol, ul) :is(menu, ol, ul) {
+    padding-left: var(--second-level-space);
+  }
+
+  li + li {
+    margin-top: 0.25rem;
+  }
+
   pre {
     border-radius: 0.25rem;
     border: 1px solid var(--fg-border);
