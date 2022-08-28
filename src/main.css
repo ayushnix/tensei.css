@@ -291,6 +291,17 @@ details[open] > :where(article, aside, div, figure, footer, header, nav, p, sect
   padding-right: 0.5rem;
 }
 
+/* ------------------------------- MULTIMEDIA ------------------------------- */
+
+img,
+picture {
+  display: block;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
 /* --------------------------------- SCREEN --------------------------------- */
 
 @media screen {
@@ -425,6 +436,24 @@ details[open] > :where(article, aside, div, figure, footer, header, nav, p, sect
   abbr[title],
   u {
     text-underline-offset: 0.25em;
+  }
+
+  /* ------------------------------- MULTIMEDIA ------------------------------- */
+
+  /* it's better to extend audio widgets to the parent width */
+  audio {
+    width: 100%;
+  }
+
+  /* don't extend images, audio, and videos beyond the max-width of the parent
+   * element */
+  audio,
+  video {
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
   }
 
   /** -------------------------------- FORMS ------------------------------- **/
