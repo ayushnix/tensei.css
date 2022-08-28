@@ -583,6 +583,11 @@ picture {
     padding: 0.25em 0.5em;
   }
 
+  mark {
+    background-color: var(--bg-mark);
+    color: var(--fg-mark);
+  }
+
   kbd {
     box-shadow: 0 2px 0 1px var(--bg-dis);
   }
@@ -591,6 +596,16 @@ picture {
     kbd {
       box-shadow: 0 2px 0 1px var(--fg-dis);
     }
+  }
+
+  /* <del> and <ins> text shouldn't be mistaken for <s> and a hyperlink, respectively */
+  del {
+    color: var(--fg-del);
+  }
+
+  ins {
+    color: var(--fg-ins);
+    text-decoration: none;
   }
 
   /* ------------------------------- MULTIMEDIA ------------------------------- */
