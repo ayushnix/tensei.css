@@ -429,7 +429,7 @@ picture {
      *
      * this should ideally be defined inside a <meta> tag in HTML documents but
      * we'll use it here as well in case it isn't */
-    color-scheme: light;
+    color-scheme: light dark;
 
     /* prevent subtle layout shift when switching from a page without a
      * scrollbar to a page that needs a scrollbar  */
@@ -455,7 +455,7 @@ picture {
 
   @media (prefers-color-scheme: dark) {
     html {
-      color-scheme: dark;
+      color-scheme: dark light;
     }
   }
 
