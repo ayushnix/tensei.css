@@ -345,6 +345,22 @@ q {
     line-height: var(--height-head);
   }
 
+  pre {
+    border-radius: 0.25rem;
+    border: 1px solid var(--fg-border);
+    padding: 0.5rem;
+
+    /* the code snippet inside preformatted text does not obey padding-inline-end
+     * if the code snippet overflows horizontally
+     * although this issue can be fixed by making `pre > code` a block element,
+     * it will mess up :focus-visible outline and keyboard navigation
+     *
+     * this issue isn't visible in Chromium but it is visible in Firefox and
+     * WebKit browsers like Epiphany
+     * https://bugzilla.mozilla.org/show_bug.cgi?id=1700858 */
+    overflow-x: auto;
+  }
+
   a:link {
     color: var(--fg-link);
     text-decoration-color: var(--fg-link-undl);
@@ -430,5 +446,12 @@ q {
   h5,
   h6 {
     line-height: var(--height-head-print);
+  }
+
+  /* increase the inline padding and soft wrap the text inside <pre> if it
+   * overflows */
+  pre {
+    margin: 1rem 0 1rem 2rem;
+    white-space: pre-wrap;
   }
 }
