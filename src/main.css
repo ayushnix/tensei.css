@@ -768,3 +768,8 @@ picture {
   list-style-type: none;
   padding: 0;
 }
+
+/* don't draw borders around emojis and kaomojis */
+:where(code, pre)[role="img"] {
+  border: 0;
+}
