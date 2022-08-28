@@ -303,14 +303,14 @@ dt {
  * 48px tap targets
  * we'll remove margin to mitigate the unintended effect of adding padding and
  * margin to <dt> */
-dt > a:any-link {
+dt a:any-link {
   display: inline-block;
   padding: 0.75rem 0;
   margin: -0.75rem 0;
 }
 
 /* consecutive <dt>'s shouldn't have padding for hyperlinks overlapping */
-dt + dt > a:any-link {
+:is(dt + dt) a:any-link {
   padding-top: 0;
 }
 
@@ -583,7 +583,7 @@ picture {
     padding: 0.25em 0.5em;
   }
 
-  :where(details, p, li, dd, dt) > :where(code, del, ins, kbd, mark, samp, var) {
+  :where(details, p, li, dd) > :where(code, del, ins, kbd, mark, samp, var) {
     border-radius: 0.25rem;
     border: 1px solid var(--fg-border);
     padding: 1px 0.25rem;
