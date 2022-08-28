@@ -265,6 +265,56 @@ q {
   font-style: italic;
 }
 
+/* --------------------------------- TABLES --------------------------------- */
+
+table {
+  border-collapse: collapse;
+}
+
+/* style tables provided they're not being used for syntax highlighting inside
+ * a preformatted code block
+ * it's not practical to account for all possible variations of tables inside
+ * <pre> because some static site generator apparently inject useless <div>'s
+ * inside or outside <pre> */
+:not(pre, code, samp) > table {
+  /* prevent tables from overflowing
+   * the alternative is to set the width to 100% irrespective of the actual
+   * width and set table-layout to fixed */
+  display: block;
+
+  /* add browser default margins to play safe */
+  margin-bottom: 1em;
+  margin-top: 1em;
+  max-width: 100%;
+  padding: 0.5rem;
+  overflow-x: auto;
+}
+
+/* as of version 103, chromium messes up border width if font size or display
+ * has been scaled, firefox v101 and webkit epiphany works fine */
+:not(pre, code, samp) > table :where(td, th) {
+  border: 1px solid var(--fg-border);
+  padding: 0.25rem 0.5rem;
+}
+
+/* don't wrap text when tables overflow */
+:not(pre, code, samp) > table tbody {
+  white-space: nowrap;
+}
+
+:not(pre, code, samp) > table thead {
+  border-bottom: 3px solid var(--fg-border);
+}
+
+:not(pre, code, samp) > table tfoot {
+  border-top: 3px solid var(--fg-border);
+}
+
+:not(pre, code, samp) > table[role="grid"] tbody tr:nth-child(odd) {
+  background-color: var(--bg-link-a);
+  color: var(--fg-table-grid);
+}
+
 /* ------------------------------- ACCORDION -------------------------------- */
 
 /* add a border around <details> when it's closed */
