@@ -583,6 +583,12 @@ picture {
     padding: 0.25em 0.5em;
   }
 
+  :where(details, p, li, dd, dt) > :where(code, del, ins, kbd, mark, samp, var) {
+    border-radius: 0.25rem;
+    border: 1px solid var(--fg-border);
+    padding: 1px 0.25rem;
+  }
+
   mark {
     background-color: var(--bg-mark);
     color: var(--fg-mark);
