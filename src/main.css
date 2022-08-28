@@ -254,6 +254,20 @@ blockquote {
   padding: 0 1rem;
 }
 
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+figcaption {
+  text-align: center;
+}
+
+/* this rule can be improved using :has() */
+:where(blockquote, p, span) + figcaption {
+  text-align: initial;
+}
+
 /* according to MDN, hyperlinks should be styled in the LVHA order where
  * L - :link
  * V - :visited
