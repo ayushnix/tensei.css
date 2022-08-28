@@ -212,6 +212,19 @@ h6 {
   font-size: var(--h6-size);
 }
 
+/* according to MDN, hyperlinks should be styled in the LVHA order where
+ * L - :link
+ * V - :visited
+ * H - :hover
+ * A - :active */
+a:link {
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+}
+
 /* --------------------------------- SCREEN --------------------------------- */
 
 @media screen {
@@ -291,6 +304,46 @@ h6 {
   h6 {
     line-height: var(--height-head);
   }
+
+  a:link {
+    color: var(--fg-link);
+    text-decoration-color: var(--fg-link-undl);
+  }
+
+  a:visited {
+    color: var(--fg-link-v);
+    text-decoration-color: var(--fg-link-v-undl);
+  }
+
+  a:visited:hover {
+    text-decoration-color: var(--fg-link-v-undl);
+  }
+
+  a:visited:active {
+    color: var(--fg-link-v);
+  }
+
+  /* minimize changes in state as much as possible while retaining a
+   * distinguishing factor */
+  a:hover {
+    text-decoration-color: var(--fg-link);
+  }
+
+  a:active {
+    background-color: var(--bg-link-a);
+    color: var(--fg-link);
+    text-decoration-color: var(--fg-link);
+  }
+
+  /* avoid using vanilla <abbr> because touch devices can't see the hover tooltip
+   * provided by <abbr>
+   * avoid using <u> for emphasis, use <strong> or <em>
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u */
+  a:any-link,
+  abbr[title],
+  u {
+    text-underline-offset: 0.25em;
+  }
 }
 
 /* ---------------------------------- PRINT --------------------------------- */
@@ -305,6 +358,19 @@ h6 {
   body {
     background-color: var(--bg-print);
     color: var(--fg-print);
+  }
+
+  a:any-link {
+    color: var(--fg-print);
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    text-decoration-color: var(--fg-print);
+    text-underline-offset: 3px;
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+  }
+
+  abbr[title],
+  u {
+    text-underline-offset: 3px;
   }
 
   h1,
