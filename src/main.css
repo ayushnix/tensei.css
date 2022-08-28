@@ -425,7 +425,8 @@ picture {
 
 @media screen {
   html {
-    /* use browser default color scheme to prevent inappropriately styled content
+    /* use browser default color scheme to prevent inappropriately styled
+     * content
      *
      * this should ideally be defined inside a <meta> tag in HTML documents but
      * we'll use it here as well in case it isn't */
@@ -501,6 +502,28 @@ picture {
     line-height: var(--height-head);
   }
 
+  /* increase padding of hyperlinks inside heading tags to satisfy Google a11y
+   * criteria for tap-targets */
+  h2 > a:any-link {
+    padding: 0.25em 0;
+  }
+
+  h3 > a:any-link {
+    padding: 0.5em 0;
+  }
+
+  h4 > a:any-link {
+    padding: 0.5em 0;
+  }
+
+  h5 > a:any-link {
+    padding: 0.75em 0;
+  }
+
+  h6 > a:any-link {
+    padding: 1em 0;
+  }
+
   menu,
   ol,
   ul {
@@ -527,10 +550,10 @@ picture {
     border: 1px solid var(--fg-border);
     padding: 0.5rem;
 
-    /* the code snippet inside preformatted text does not obey padding-inline-end
-     * if the code snippet overflows horizontally
-     * although this issue can be fixed by making `pre > code` a block element,
-     * it will mess up :focus-visible outline and keyboard navigation
+    /* the code snippet inside preformatted text does not obey
+     * padding-inline-end if the code snippet overflows horizontally although
+     * this issue can be fixed by making `pre > code` a block element, it will
+     * mess up :focus-visible outline and keyboard navigation
      *
      * this issue isn't visible in Chromium but it is visible in Firefox and
      * WebKit browsers like Epiphany
@@ -568,8 +591,8 @@ picture {
     text-decoration-color: var(--fg-link);
   }
 
-  /* avoid using vanilla <abbr> because touch devices can't see the hover tooltip
-   * provided by <abbr>
+  /* avoid using vanilla <abbr> because touch devices can't see the hover
+   * tooltip provided by <abbr>
    * avoid using <u> for emphasis, use <strong> or <em>
    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u */
   a:any-link,
@@ -604,7 +627,7 @@ picture {
     }
   }
 
-  /* <del> and <ins> text shouldn't be mistaken for <s> and a hyperlink, respectively */
+  /* <del> and <ins> text shouldn't be mistaken for <s> and a hyperlink */
   del {
     color: var(--fg-del);
   }
@@ -614,7 +637,7 @@ picture {
     text-decoration: none;
   }
 
-  /* ------------------------------- MULTIMEDIA ------------------------------- */
+  /* ------------------------------ MULTIMEDIA ------------------------------ */
 
   /* it's better to extend audio widgets to the parent width */
   audio {
