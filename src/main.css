@@ -641,6 +641,49 @@ picture {
     font-family: inherit;
     font-size: inherit;
   }
+
+  /** -------------------------------- FOCUS ------------------------------- **/
+
+  /* make focus outlines accessible by increasing their width
+   *
+   * ideally, [tabindex="0"] should've been styled instead of <pre> and <table>
+   * but I don't think popular static site generators generate <pre
+   * tabindex="0"> by default when converting markdown/commonmark to HTML.
+   * besides, there's reason to style `:focus` on <pre> and <table> even if
+   * [tabindex="0"] isn't specified because if text overflows horizontally
+   * inside these elements, firefox allows focusing on them and scrolling them
+   * horizontally but chromium doesn't.
+   * https://www.sarasoueidan.com/blog/focus-indicators/ */
+  :where([tabindex="0"], a, pre, summary, table):focus {
+    border-radius: 1px;
+
+    /* color | style | width */
+    outline: var(--fg-link) solid 3px;
+    outline-offset: 3px;
+  }
+
+  /* this is needed to prevent summary from getting a border radius at the
+   * bottom left and bottom right when <details> is [open] */
+  details[open] > summary:focus {
+    border-radius: 1px 1px 0 0;
+    outline: var(--fg-link) solid 3px;
+    outline-offset: 3px;
+  }
+
+  /* prevent conflict of audio and video element color and outline-color */
+  :where(audio, video):focus {
+    border-radius: 1px;
+    outline: var(--fg-link) solid 3px;
+    outline-offset: 0.25rem;
+  }
+
+  /* if a browser supports :focus-visible (most mainstream browsers should),
+   * use it instead of :focus */
+  @supports selector(:focus-visible) {
+    :where([tabindex="0"], a, pre, table):focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
 }
 
 /* ---------------------------------- PRINT --------------------------------- */
