@@ -268,6 +268,12 @@ figcaption {
   text-align: initial;
 }
 
+/* compared to firefox, chromium's implementation of <hr> in light mode seems
+ * broken; the line is a bit too thin */
+hr {
+  color: var(--fg-border);
+}
+
 /* according to MDN, hyperlinks should be styled in the LVHA order where
  * L - :link
  * V - :visited
