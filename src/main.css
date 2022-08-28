@@ -186,6 +186,17 @@ body {
   overflow-wrap: break-word;
 }
 
+/* distinguish table header cells, definition term, and var by increasing
+ * font-weight to 600
+ * if 600 isn't available, 700 should be chosen by the browser automatically */
+:not(pre, code, samp) > table th,
+kbd, /* <kbd>'s font size is reduced later, compensate by increasing weight */
+dfn,
+dt,
+var {
+  font-weight: 600;
+}
+
 h1 {
   font-size: var(--h1-size);
   margin-top: var(--h1-margin);
@@ -212,6 +223,27 @@ h6 {
   font-size: var(--h6-size);
 }
 
+/* code, kbd, pre, samp, and var should be monospace
+ * address and time have been made monospace as well to eliminate chances of
+ * making mistakes when dealing with ambiguous characters like 0, O, 1, l, I */
+address,
+code,
+kbd,
+pre,
+samp,
+time,
+var {
+  font-family: var(--mono-font);
+}
+
+/* avoid using italic monospace fonts because most italic monospace fonts are
+ * usually not truly italic, they're just slanted and often don't work well */
+address,
+dfn,
+var {
+  font-style: normal;
+}
+
 /* according to MDN, hyperlinks should be styled in the LVHA order where
  * L - :link
  * V - :visited
@@ -223,6 +255,14 @@ a:link {
   text-decoration-style: solid;
   text-decoration-thickness: 1px;
   /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+}
+
+/* italicize <del> and <ins> to distinguish them
+ * inline quotes look better when italicized */
+del,
+ins,
+q {
+  font-style: italic;
 }
 
 /* --------------------------------- SCREEN --------------------------------- */
@@ -343,6 +383,16 @@ a:link {
   abbr[title],
   u {
     text-underline-offset: 0.25em;
+  }
+
+  /** -------------------------------- FORMS ------------------------------- **/
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
   }
 }
 
