@@ -757,6 +757,12 @@ picture {
     white-space: pre-wrap;
   }
 
+  /* the list marker in summary isn't useful in print */
+  summary {
+    list-style-type: none;
+  }
+}
+
 /* ----------------------------- AGNOSTIC LAYOUT ---------------------------- */
 
 /* if <ol> or <ul> are explicitly assigned the role of "list", removed the
