@@ -244,6 +244,16 @@ var {
   font-style: normal;
 }
 
+/* the top padding has been deliberately omitted otherwise the margin of
+ * <blockquote> and its child element, most likely <p>, add up to make
+ * <blockquote> look weird */
+blockquote {
+  border-left: 0.25rem solid var(--fg-border);
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 1rem;
+}
+
 /* according to MDN, hyperlinks should be styled in the LVHA order where
  * L - :link
  * V - :visited
