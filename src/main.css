@@ -318,6 +318,14 @@ dd {
   margin-left: var(--first-level-space);
 }
 
+kbd {
+  /* reduce font-size and remove block padding to prevent box-shadow clashing
+   * with other inline elements */
+  font-size: 90%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* italicize <del> and <ins> to distinguish them
  * inline quotes look better when italicized */
 del,
@@ -552,6 +560,16 @@ picture {
   /* make superscripts and subscripts with hyperlink children easier to tap */
   :where(sub, sup) > a:any-link {
     padding: 0.25em 0.5em;
+  }
+
+  kbd {
+    box-shadow: 0 2px 0 1px var(--bg-dis);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    kbd {
+      box-shadow: 0 2px 0 1px var(--fg-dis);
+    }
   }
 
   /* ------------------------------- MULTIMEDIA ------------------------------- */
