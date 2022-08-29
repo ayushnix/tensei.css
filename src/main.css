@@ -737,7 +737,7 @@ picture {
   /* if a browser supports :focus-visible (most mainstream browsers should),
    * use it instead of :focus */
   @supports selector(:focus-visible) {
-    :where([tabindex="0"], a, pre, table):focus:not(:focus-visible) {
+    :is([tabindex="0"], a, pre, summary, table):focus:not(:focus-visible) {
       outline: none;
     }
   }
