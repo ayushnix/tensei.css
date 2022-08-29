@@ -60,14 +60,14 @@
   --h6-size: 0.833rem;
 
   /* fix the margin of <h1> inside <section>s */
-  --h1-margin: 0.67rem;
+  --h1-margin: 0.67em;
 
   /* reduce the browser default inline margin of elements such as <dd>, <ol>,
    * and <ul> on mobile to make room for more characters on a line and
    * gradually increase the margin to the browser default on desktop sized
    * viewports */
-  --first-level-space: clamp(1.5rem, calc(1.16rem + 1.7vw), 2.25rem);
-  --second-level-space: clamp(1rem, calc(0.69rem + 1.56vw), 1.69rem);
+  --first-level-space: clamp(1.5em, calc(1.16em + 1.7vw), 2.25em);
+  --second-level-space: clamp(1em, calc(0.69em + 1.56vw), 1.69em);
 
   /* the colors have been carefully chosen to meet the following requirements:
    * - avoid halation issues in dark mode
@@ -141,6 +141,13 @@
 /* alphabetical ordering of CSS declarations sounds nice in theory but breaks
  * down at scale while also hurting readability
  * https://blog.jim-nielsen.com/2022/ordering-css-delcarations/ */
+
+/* we'll use `rem` for global font sizing and `em` for local margins, padding,
+ * gaps etc
+ * https://clagnut.com/blog/2384/
+ * using `ch` makes sense only if we're using monospace fonts because `1ch` is
+ * usually wider by 20-30% in proportional typefaces
+ * https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
 
 html {
   /* switch to border-box instead of content-box to make box size, margins, and
@@ -248,10 +255,10 @@ var {
  * <blockquote> and its child element, most likely <p>, add up to make
  * <blockquote> look weird */
 blockquote {
-  border-left: 0.25rem solid var(--fg-border);
+  border-left: 0.25em solid var(--fg-border);
   margin-left: 0;
   margin-right: 0;
-  padding: 0 1rem;
+  padding: 0 1em;
 }
 
 figure {
@@ -296,7 +303,7 @@ sup {
 /* <dt> should include a top margin to provide even spaces for <dd> when <dd>
  * has <p> as child element */
 dt {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 
 /* if <dt> has a hyperlink, we need padding to meet Google a11y requirements of
@@ -305,8 +312,8 @@ dt {
  * margin to <dt> */
 dt a:any-link {
   display: inline-block;
-  padding: 0.75rem 0;
-  margin: -0.75rem 0;
+  padding: 0.75em 0;
+  margin: -0.75em 0;
 }
 
 /* consecutive <dt>'s shouldn't have padding for hyperlinks overlapping */
@@ -355,7 +362,7 @@ table {
   margin-bottom: 1em;
   margin-top: 1em;
   max-width: 100%;
-  padding: 0.5rem;
+  padding: 0.5em;
   overflow-x: auto;
 }
 
@@ -363,7 +370,7 @@ table {
  * has been scaled, firefox v101 and webkit epiphany works fine */
 :not(pre, code, samp) > table :where(td, th) {
   border: 1px solid var(--fg-border);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25em 0.5em;
 }
 
 /* don't wrap text when tables overflow */
@@ -388,12 +395,12 @@ table {
 
 /* add a border around <details> when it's closed */
 details {
-  border-radius: 0.25rem;
+  border-radius: 0.25em;
   border: 1px solid var(--fg-border);
 }
 
 summary {
-  padding: 0.75rem 0.5rem;
+  padding: 0.75em 0.5em;
 }
 
 /* when <details> is open, add a block border to <summary> */
@@ -406,8 +413,8 @@ details[open] > summary {
  * we'll account for a few commonly used block elements without an inherent
  * inline padding or margin and add inline padding to them */
 details[open] > :where(article, aside, div, figure, footer, header, nav, p, section) {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 /* ------------------------------- MULTIMEDIA ------------------------------- */
@@ -541,14 +548,14 @@ picture {
     padding-left: var(--second-level-space);
   }
 
-  li + li {
-    margin-top: 0.25rem;
+  :not(ol[role="list"], ul[role="list"]) > :where(li + li) {
+    margin-top: 0.25em;
   }
 
   pre {
-    border-radius: 0.25rem;
+    border-radius: 0.25em;
     border: 1px solid var(--fg-border);
-    padding: 0.5rem;
+    padding: 0.5em;
 
     /* the code snippet inside preformatted text does not obey
      * padding-inline-end if the code snippet overflows horizontally although
@@ -607,9 +614,9 @@ picture {
   }
 
   :where(details, p, li, dd) > :where(code, del, ins, kbd, mark, samp, var) {
-    border-radius: 0.25rem;
+    border-radius: 0.25em;
     border: 1px solid var(--fg-border);
-    padding: 1px 0.25rem;
+    padding: 1px 0.25em;
   }
 
   mark {
@@ -667,7 +674,7 @@ picture {
 
   fieldset,
   form {
-    margin: 1rem 0;
+    margin: 1em 0;
   }
 
   fieldset,
@@ -676,8 +683,8 @@ picture {
   }
 
   legend {
-    border-radius: 0.25rem;
-    padding: 1px 0.25rem;
+    border-radius: 0.25em;
+    padding: 1px 0.25em;
   }
 
   /* for consistency, change font-family of address, time, and anything where
@@ -725,7 +732,7 @@ picture {
   :where(audio, video):focus {
     border-radius: 1px;
     outline: var(--fg-link) solid 3px;
-    outline-offset: 0.25rem;
+    outline-offset: 0.25em;
   }
 
   /* if a browser supports :focus-visible (most mainstream browsers should),
@@ -776,7 +783,7 @@ picture {
   /* increase the inline padding and soft wrap the text inside <pre> if it
    * overflows */
   pre {
-    margin: 1rem 0 1rem 2rem;
+    margin: 1em 0 1em 2em;
     white-space: pre-wrap;
   }
 
