@@ -718,7 +718,6 @@ picture {
 
     /* color | style | width */
     outline: var(--fg-link) solid 3px;
-    outline-offset: 3px;
   }
 
   /* this is needed to prevent summary from getting a border radius at the
@@ -726,7 +725,6 @@ picture {
   details[open] > summary:focus {
     border-radius: 1px 1px 0 0;
     outline: var(--fg-link) solid 3px;
-    outline-offset: 3px;
   }
 
   /* prevent conflict of audio and video element color and outline-color */
