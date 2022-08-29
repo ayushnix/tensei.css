@@ -279,6 +279,7 @@ figcaption {
  * broken; the line is a bit too thin */
 hr {
   color: var(--fg-border);
+  margin: 1em auto;
 }
 
 /* according to MDN, hyperlinks should be styled in the LVHA order where
