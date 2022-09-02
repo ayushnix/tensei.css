@@ -318,13 +318,14 @@ dt a:any-link {
   margin: -0.75em 0;
 }
 
-/* consecutive <dt>'s shouldn't have padding for hyperlinks overlapping */
+/* consecutive <dt>'s shouldn't have padding for hyperlinks overlapping
+ * use :is() to override the rule set before with higher specificity */
 :is(dt + dt) a:any-link {
   padding-top: 0;
 }
 
 dd {
-  margin-left: var(--first-level-space);
+  margin: 1em 0 1em var(--first-level-space);
 }
 
 kbd {
