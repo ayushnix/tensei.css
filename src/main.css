@@ -448,7 +448,7 @@ picture {
   }
 
   /* reduce the tab-size on mobile devices */
-  @media (max-width: 26em) {
+  @media (max-width: 414px) {
     html {
       tab-size: 2;
     }
@@ -481,7 +481,7 @@ picture {
   /* handheld devices with a screen smaller than the 1st generation iPhone SE
    * should have full hyphenation enabled to increase the number of characters
    * displayed on a single line of text */
-  @media (max-width: 20em) {
+  @media (max-width: 320px) {
     body {
       /* stylelint-disable-next-line property-no-vendor-prefix */
       -webkit-hyphens: auto;
