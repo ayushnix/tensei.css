@@ -200,6 +200,7 @@ body {
 kbd, /* <kbd>'s font size is reduced later, compensate by increasing weight */
 dfn,
 dt,
+legend,
 var {
   font-weight: 600;
 }
@@ -487,15 +488,18 @@ picture {
     }
   }
 
-  /* prevent halation possibilities by lowering contrast for bolder text */
+  /* prevent halation possibilities by lowering contrast for bolder text
+   * don't lower contrast for <kbd> because it has lesser font-size */
   :not(pre, code, samp) > table th,
   b,
+  dfn,
   dt,
   h1,
   h2,
   h3,
   h4,
   h5,
+  legend,
   strong,
   var {
     color: var(--fg-hsb);
