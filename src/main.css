@@ -656,7 +656,8 @@ picture {
 
   /* ------------------------------ MULTIMEDIA ------------------------------ */
 
-  /* it's better to extend audio widgets to the parent width */
+  /* it's better to extend audio widgets to the parent width
+   * specifying `height: auto` to <audio> makes it dissappear on chromium */
   audio {
     width: 100%;
   }
@@ -666,7 +667,6 @@ picture {
   audio,
   video {
     display: block;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
