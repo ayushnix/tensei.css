@@ -722,7 +722,7 @@ picture {
    * inside these elements, firefox allows focusing on them and scrolling them
    * horizontally but chromium doesn't.
    * https://www.sarasoueidan.com/blog/focus-indicators/ */
-  :where([tabindex="0"], a, pre, summary, table):focus {
+  :where([tabindex="0"], a, pre, summary, table, textarea):focus {
     border-radius: 1px;
 
     /* color | style | width */
