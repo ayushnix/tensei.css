@@ -614,6 +614,10 @@ picture {
     text-underline-offset: 0.25em;
   }
 
+  abbr {
+    cursor: help;
+  }
+
   /* make superscripts and subscripts with hyperlink children easier to tap */
   :where(sub, sup) > a:any-link {
     padding: 0.25em 0.5em;
