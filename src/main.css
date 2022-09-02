@@ -515,6 +515,36 @@ picture {
     line-height: var(--height-head);
   }
 
+  a:link {
+    color: var(--fg-link);
+    text-decoration-color: var(--fg-link-undl);
+  }
+
+  a:visited {
+    color: var(--fg-link-v);
+    text-decoration-color: var(--fg-link-v-undl);
+  }
+
+  /* minimize changes in state as much as possible while retaining a
+   * distinguishing factor */
+  a:hover {
+    text-decoration-color: var(--fg-link);
+  }
+
+  a:active {
+    background-color: var(--bg-link-a);
+    color: var(--fg-link);
+    text-decoration-color: var(--fg-link);
+  }
+
+  a:visited:hover {
+    text-decoration-color: var(--fg-link-v-undl);
+  }
+
+  a:visited:active {
+    color: var(--fg-link-v);
+  }
+
   /* increase padding of hyperlinks inside heading tags to satisfy Google a11y
    * criteria for tap-targets */
   h2 > a:any-link {
@@ -572,36 +602,6 @@ picture {
      * WebKit browsers like Epiphany
      * https://bugzilla.mozilla.org/show_bug.cgi?id=1700858 */
     overflow-x: auto;
-  }
-
-  a:link {
-    color: var(--fg-link);
-    text-decoration-color: var(--fg-link-undl);
-  }
-
-  a:visited {
-    color: var(--fg-link-v);
-    text-decoration-color: var(--fg-link-v-undl);
-  }
-
-  a:visited:hover {
-    text-decoration-color: var(--fg-link-v-undl);
-  }
-
-  a:visited:active {
-    color: var(--fg-link-v);
-  }
-
-  /* minimize changes in state as much as possible while retaining a
-   * distinguishing factor */
-  a:hover {
-    text-decoration-color: var(--fg-link);
-  }
-
-  a:active {
-    background-color: var(--bg-link-a);
-    color: var(--fg-link);
-    text-decoration-color: var(--fg-link);
   }
 
   /* avoid using vanilla <abbr> because touch devices can't see the hover
