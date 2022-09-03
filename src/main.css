@@ -396,19 +396,27 @@ table {
 
 /* ------------------------------- ACCORDION -------------------------------- */
 
-/* add a border around <details> when it's closed */
+/* when closed, add a faint border and when open, add a high contrast border */
 details {
   border-radius: 0.25em;
   border: 1px solid var(--fg-border);
+  margin: 1em 0;
+}
+
+details:hover {
+  border-color: var(--fg-text);
+}
+
+details[open] {
+  border: 1px solid var(--fg-text);
 }
 
 summary {
   padding: 0.75em 0.5em;
 }
 
-/* when <details> is open, add a block border to <summary> */
 details[open] > summary {
-  border-bottom: 1px solid var(--fg-border);
+  border-bottom: 1px solid var(--fg-text);
 }
 
 /* according to whatwg HTML spec, <details> can contain "flow content"
