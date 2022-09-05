@@ -726,20 +726,3 @@ picture {
     }
   }
 }
-
-/* ----------------------------- AGNOSTIC LAYOUT ---------------------------- */
-
-/* if <ol> or <ul> are explicitly assigned the role of "list", removed the
- * list-style-type markers and padding
- *
- * this layout is usually used to construct links inside <nav> using flex,
- * inline-flex, and inline-block layout */
-:where(ol, ul)[role="list"] {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* don't draw borders around emojis and kaomojis */
-:where(code, pre)[role="img"] {
-  border: 0;
-}
