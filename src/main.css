@@ -704,6 +704,10 @@ picture {
     outline: var(--fg-link) solid 3px;
   }
 
+  a:any-link:focus {
+    outline-offset: 2px;
+  }
+
   /* this is needed to prevent summary from getting a border radius at the
    * bottom left and bottom right when <details> is [open] */
   details[open] > summary:focus {
