@@ -186,4 +186,88 @@
   select:hover:not(:disabled) {
     border-color: var(--fg-text);
   }
+
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    appearance: none;
+    background-color: var(--bg-text);
+    border-radius: 0.25em;
+    border: 1px solid var(--fg-border);
+    box-shadow: 0 4px 0 1px var(--bg-dis);
+    color: var(--fg-text);
+    margin: 0.5rem 0;
+    position: relative;
+    top: -1px;
+  }
+
+  button:focus,
+  input[type="submit"]:focus,
+  input[type="reset"]:focus,
+  input[type="button"]:focus {
+    border-radius: 1px;
+    outline: var(--fg-link) solid 3px;
+  }
+
+  @supports selector(:focus-visible) {
+    button:focus:not(:focus-visible),
+    input[type="submit"]:focus:not(:focus-visible),
+    input[type="reset"]:focus:not(:focus-visible),
+    input[type="button"]:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  button:disabled,
+  input[type="submit"]:disabled,
+  input[type="reset"]:disabled,
+  input[type="button"]:disabled {
+    background-color: var(--bg-dis);
+    color: var(--fg-dis);
+  }
+
+  button:hover:not(:disabled),
+  input[type="submit"]:hover:not(:disabled),
+  input[type="reset"]:hover:not(:disabled),
+  input[type="button"]:hover:not(:disabled) {
+    border-color: var(--fg-text);
+    background-color: var(--bg-form);
+  }
+
+  button:active:not(:disabled),
+  input[type="submit"]:active:not(:disabled),
+  input[type="reset"]:active:not(:disabled),
+  input[type="button"]:active:not(:disabled) {
+    border-color: var(--fg-text);
+    box-shadow: 0 1px 0 1px var(--fg-border);
+    top: 1px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+      box-shadow: 0 4px 0 1px var(--fg-dis);
+    }
+
+    button:active:not(:disabled),
+    input[type="submit"]:active:not(:disabled),
+    input[type="reset"]:active:not(:disabled),
+    input[type="button"]:active:not(:disabled) {
+      box-shadow: 0 1px 0 1px var(--fg-border);
+    }
+  }
+
+  input[type="file"]:focus {
+    border-radius: 1px;
+    outline: var(--fg-link) solid 3px;
+  }
+
+  @supports selector(:focus-visible) {
+    input[type="file"]:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
 }
