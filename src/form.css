@@ -28,6 +28,18 @@
     cursor: not-allowed;
   }
 
+  /* for consistency, change font-family to monospace font where ambiguity in
+   * characters isn't desirable */
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="week"] {
+    font-family: var(--mono-font);
+  }
+
   :where(form, fieldset) > :where(div, p, ol, ul) {
     margin: 0.75em 0;
   }
@@ -48,16 +60,25 @@
     padding: 3px 0.5em;
   }
 
-  /* for consistency, change font-family to monospace font where ambiguity in
-   * characters isn't desirable */
+
   input[type="date"],
-  input[type="datetime"],
   input[type="datetime-local"],
   input[type="email"],
   input[type="month"],
   input[type="number"],
+  input[type="password"],
+  input[type="search"],
   input[type="tel"],
-  input[type="week"] {
-    font-family: var(--mono-font);
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  textarea {
+    appearance: none;
+    background-color: var(--bg-text);
+    border-radius: 0.25em;
+    border: 1px solid var(--fg-border);
+    color: var(--fg-text);
+    display: block;
   }
 }
