@@ -44,7 +44,8 @@
 
   legend {
     border-radius: 0.25em;
-    padding: 1px 0.25em;
+    color: var(--fg-hsb);
+    padding: 3px 0.5em;
   }
 
   /* for consistency, change font-family to monospace font where ambiguity in
