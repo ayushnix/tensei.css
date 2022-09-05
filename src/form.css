@@ -24,6 +24,10 @@
     }
   }
 
+  :where(button, input, select, textarea):disabled {
+    cursor: not-allowed;
+  }
+
   fieldset,
   form {
     margin: 1em 0;
