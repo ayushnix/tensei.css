@@ -32,7 +32,8 @@
    * font size.
    *
    * using the clamp function saves us from defining multiple media query
-   * breakpoints
+   * breakpoints to acheieve the same result
+   *
    * https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/ */
   --base-font-size: clamp(1rem, calc(0.923rem + 0.315vw), 1.125rem);
 
@@ -44,12 +45,11 @@
    * although multiple <h1> tags shouldn't be used on a single HTML page, if
    * they are, we won't make the size of <h1> different
    *
-   * the type scale of 1.2 (minor third) has been used to try and stay close to
-   * the browser default size while also increasing the size of <h4>, <h5>, and
+   * the type scale of 1.2 (minor third) has been used to stay close to the
+   * browser default size while also increasing the size of <h4>, <h5>, and
    * <h6> in an attempt to make them more useful
    * a type scale of 1.333 and above makes headings unusually large and
    * obnoxious
-   * a height of 111 pixels in <h1> doesn't make sense
    *
    * https://www.smashingmagazine.com/2020/01/html5-article-section/ */
   --h1-size: 2.074rem;
@@ -62,8 +62,8 @@
   /* fix the margin of <h1> inside <section>s */
   --h1-margin: 0.67em;
 
-  /* reduce the browser default inline margin of elements such as <dd>, <ol>,
-   * and <ul> on mobile to make room for more characters on a line and
+  /* reduce the browser default inline margin/padding of elements such as <dd>,
+   * <ol>, and <ul> on mobile to make room for more characters on a line and
    * gradually increase the margin to the browser default on desktop sized
    * viewports */
   --first-level-space: clamp(1.5em, calc(1.16em + 1.7vw), 2.25em);
@@ -82,7 +82,7 @@
    *   https://memex.marginalia.nu/log/00-linkpocalypse.gmi
    *
    * the default light and dark theme aim for APCA Lc ~90 for body text
-   * the lesser contrast themes aim for APCA Lc ~80 for body text
+   *
    * https://www.myndex.com/APCA/ */
 
   /* primary colors */
@@ -140,18 +140,25 @@
 
 /* alphabetical ordering of CSS declarations sounds nice in theory but breaks
  * down at scale while also hurting readability
+ *
  * https://blog.jim-nielsen.com/2022/ordering-css-delcarations/ */
 
-/* we'll use `rem` for global font sizing and `em` for local margins, padding,
- * gaps etc
+/* we'll use `rem` for global font sizing, `em` for local margins, padding,
+ * gaps, and `ex` for height
+ *
  * https://clagnut.com/blog/2384/
- * using `ch` makes sense only if we're using monospace fonts because `1ch` is
- * usually wider by 20-30% in proportional typefaces
+ *
+ * using `ch` makes sense when we're using monospace fonts or specifying width
+ * when monospace fonts are in use
+ * `1ch` is usually wider than the average character width by 20-30% in
+ * proportional typefaces
+ *
  * https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
 
 html {
   /* switch to border-box instead of content-box to make box size, margins, and
-   * padding more intuitive */
+   * padding more intuitive
+   * CSS paint containment also works on border-box */
   box-sizing: border-box;
 
   /* never use serif fonts on screen unless it's possible to ensure that a
@@ -162,11 +169,13 @@ html {
    * have a high DPI screen and simply zooms in the page to a large value
    *
    * it's better to just use some CSS/JS and allow users to switch to a serif
-   * font if they want like https://chrismorgan.info/ */
+   * font if they want like chrismorgan.info does */
   font: var(--base-font-size) / var(--height-text) var(--sans-font);
 
   /* don't inflate text in landscape mode
+   *
    * https://archive.ph/gwL4y */
+
   /* stylelint-disable property-no-vendor-prefix */
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -187,6 +196,7 @@ html {
 
 /* although text-align: justify might look nice, don't use it because it hurts
  * readability for people with dyslexia
+ *
  * https://archive.ph/NRM5I */
 body {
   /* prevent text overflow by wrapping text when needed */
@@ -195,7 +205,7 @@ body {
 
 /* distinguish table header cells, definition term, and var by increasing
  * font-weight to 600
- * if 600 isn't available, 700 should be chosen by the browser automatically */
+ * if 600 isn't available, 700 should be chosen automatically by the browser */
 :not(pre, code, samp) > table th,
 kbd, /* <kbd>'s font size is reduced later, compensate by increasing weight */
 dfn,
@@ -244,8 +254,8 @@ var {
   font-family: var(--mono-font);
 }
 
-/* avoid using italic monospace fonts because most italic monospace fonts are
- * usually not truly italic, they're just slanted and often don't work well */
+/* avoid using italic monospace fonts because many italic monospace fonts are
+ * usually not truly italic, they're just slanted and may not work well */
 address,
 dfn,
 var {
@@ -271,7 +281,6 @@ figcaption {
   text-align: center;
 }
 
-/* this rule can be improved using :has() */
 :where(blockquote, p, span) + figcaption {
   text-align: initial;
 }
@@ -482,7 +491,7 @@ picture {
     background-color: var(--bg-text);
     color: var(--fg-text);
 
-    /* automatically add margins to elements when their max-width is defined */
+    /* automatically add margins when max-width is defined */
     margin: auto;
   }
 
@@ -593,11 +602,14 @@ picture {
    * pseudo-class has a specificity of 0 which essentially makes it useless in
    * this context
    * this can be confirmed using
+   *
    * https://polypane.app/css-specificity-calculator/ */
   :is(menu, ol, ul) :is(menu, ol, ul) {
     padding-left: var(--second-level-space);
   }
 
+  /* add some margin between successive list items if they're not being used as
+   * navbar items or for any other purpose besides normal lists */
   :not(ol[role="list"], ul[role="list"]) > :where(li + li) {
     margin-top: 0.25em;
   }
