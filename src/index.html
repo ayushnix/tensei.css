@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns/website#">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="a showcase of tensei.css in action on a demo page">
+  <meta name="keywords" content="css,classless,framework,lightweight,accessibility">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="tensei.css demo">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tensei.ayushnix.com">
+  <meta property="og:site_name" content="tensei.css demo">
+  <meta property="og:description" content="a showcase of tensei.css in action on a demo page">
+  <meta property="og:image" content="https://tensei.ayushnix.com/images/tensei-ogimage.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="an opengraph image showcasing a part of the home page of https://tensei.ayushnix.com">
+  <link rel="icon" href="https://tensei.ayushnix.com/images/favicon-32x32.png" type="image/png">
+  <link rel="icon" href="https://tensei.ayushnix.com/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://tensei.ayushnix.com/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="main.css">
+  <link rel="canonical" href="https://tensei.ayushnix.com">
+  <base href="https://tensei.ayushnix.com/">
+  <title>tensei.css demo</title>
+</head>
+<body>
+  <header>
+    <h1>tensei.css demo</h1>
+    <p>a showcase of tensei.css in action on a demo page</p>
+    <nav>
+      <ul role="list">
+        <li><a href="/">home</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://sr.ht/~ayushnix/tensei.css">sourcehut</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://todo.sr.ht/~ayushnix/tensei.css">issues</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://lists.sr.ht/~ayushnix/tensei.css">patches</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://github.com/ayushnix/tensei.css">github</a></li>
+        <li><a rel="noopener noreferrer" target="_blank" href="https://www.npmjs.com/package/tensei-css">npmjs</a></li>
+      </ul>
+    </nav>
+  </header>
+  <hr>
+  <main>
+    <article>
+      <section>
+        <h2 id="preface">Preface</h2>
+        <p>tensei.css is a lightweight classless CSS framework that is meant to be used on static
+        websites with a strong focus on text, readability, accessibility, and reducing
+        distractions.</p>
+      </section>
+      <section>
+        <h2 id="basic-typography">Basic Typography</h2>
+        <p>tensei.css respects user choice of fonts by using the following
+        system font stack</p>
+        <pre tabindex="0"><code>:root {
+  --sans-font: sans-serif;
+  --mono-font: monospace, monospace;
+  --serif-font: serif;
+}</code></pre>
+        <p>tensei.css uses
+        <a rel="noopener noreferrer" target="_blank" href="https://web.dev/learn/design/typography/#clamping-text">fluid typography</a>
+        to set a base font size of at least <code>1rem</code> and at most <code>1.125rem</code>.
+        When the browser default font size is <code>16px</code>, smartphones and smaller screens
+        should have a font size of approximately <code>16px</code> to accomodate more characters on
+        each line. When using tablets like the iPad, the font size should increase to approximately
+        <code>17px</code>. When using a laptop or a desktop, the font size should increase to
+        <code>18px</code> to utilize the additional screen real estate and resolution.</p>
+        <pre tabindex="0"><code>:root {
+  --base-font-size: clamp(1rem, calc(0.923rem + 0.315vw), 1.125rem);
+}</code></pre>
+        <p>Since the base font size is fluid and all other font sizes are relative to the base font
+        size, each and every element in tensei.css has a fluid font size. This conservative use of
+        fluid typography allows tensei.css to meet its objectives while avoiding the unnecessary
+        complexity offered by fluid typography.</p>
+        <p>The size of the headings has been adjusted to remove the visual representation of the
+        <a rel="noopener noreferrer" target="_blank" href="https://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html">HTML5 document outline algorithm</a>
+        from the <code>&lt;h1&gt;</code> tags. The heading tags use a
+        <a rel="noopener noreferrer" target="_blank" href="https://type-scale.com/">type scale</a>
+        value of 1.2. This makes the size mostly equivalent to the browser default size for
+        headings. It also makes the <code>&lt;h5&gt;</code> and the <code>&lt;h6&gt;</code> tags
+        have somewhat higher font size than usual to make them more useful. tensei.css doesn't
+        believe in increasing heading font sizes to obnoxiously high sizes. It abhors typical social
+        media style attention seeking clickbait design.</p>
+        <p>The colors of headings has slightly lesser contrast compared to body text to avoid
+        halation issues</p>
+        <h1>Heading 1 — <code>2.074rem</code></h1>
+        <h2>Heading 2 — <code>1.728rem</code></h2>
+        <h3>Heading 3 — <code>1.44rem</code></h3>
+        <h4>Heading 4 — <code>1.2rem</code></h4>
+        <h5>Heading 5 — <code>1rem</code></h5>
+        <h6>Heading 6 — <code>0.833rem</code></h6>
+      </section>
+      <section>
+        <h3 id="colors">Colors</h3>
+        <p>tensei.css makes judicious use of carefully chosen colors to meet
+        the following objectives</p>
+        <ul>
+          <li>offer color palettes for light mode and dark mode</li>
+          <li>don't change colors abruptly (for example, blue to red) on user interaction</li>
+          <li>make primary colors perceptually uniform in CIELAB color space and have similar
+          <a rel="noopener noreferrer" target="_blank" href="https://www.myndex.com/APCA/">APCA</a>
+          contrast <span style="font-size: 125%; line-height: 0">L</span><sup>c</sup> values</li>
+          <li>avoid halation issues in dark mode colors</li>
+          <li>avoid highly saturated colors to prevent Helmholtz-Kohlrausch effect</li>
+          <li>use distinguishable colors, even for people with color blindness conditions like
+          Protanopia, Deuteranopia, and Tritanopia</li>
+          <li>HTML elements and their states should be distinguishable even
+          without colors in grayscale mode</li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="links">Hyperlinks</h2>
+        <p>tensei.css uses underlines in hyperlinks to ensure that they're
+        distinguishable, even in the absence of colors in grayscale mode. The
+        underlines have an opacity of 50% which changes to 100% on hover. This
+        prevents increasing `border-bottom` size and introducing subtle layout
+        shift.</p>
+        <p>Here is a sample hyperlink.</p>
+        <p><a rel="noopener noreferrer" target="_blank" href="https://www.feistyduck.com/bulletproof-tls-newsletter/archive">Bulletproof TLS Newsletter Archive</a></p>
+        <p>When hyperlinks are active or visited, the changes in color aren't abrupt and similar in
+        hue to the primary hyperlinks colors to avoid unnecessary stimulation and distractions.</p>
+      </section>
+      <section>
+        <h2 id="other-html-elements">Other HTML Elements</h2>
+        <p>tensei.css uses simple but distinguishable styles for HTML elements.</p>
+        <section>
+          <h3 id="inline-elements">Inline Elements</h3>
+          <ul>
+            <li>Here's a <strong>strongly</strong> emphasized word</li>
+            <li>Here's another way to <em>emphasize</em> a word</li>
+            <li>We can highlight a word using the <mark>mark</mark> HTML tag</li>
+            <li>Here's some inline code: <code>local vinland = "Thorfinn"</code></li>
+            <li><var>$PATH</var> using the <code>&lt;var&gt;</code> tag</li>
+            <li>I've assigned <kbd>SUPER</kbd> + <kbd>w</kbd> to close an application</li>
+            <li><abbr title="HyperText Markup Language">HTML</abbr> is an abbreviation using
+            <code>&lt;abbr&gt;</code></li>
+            <li><dfn id="html-defintion"><abbr title="HyperText Markup Language">HTML</abbr></dfn>
+            can be defined using <code>&lt;dfn&gt;</code> as the standard markup language for
+            documents designed to be displayed in a web browser.</li>
+            <li>If a hyperlink is present in a superscript<sup><a href="#">note 1</a></sup>
+            or a subscript <sub><a href="#">note 2</a></sub>, the padding is slightly
+            increasing to make them easier to tap. If hyperlinks aren't present,
+            <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> behave as expected — H<sub>2</sub>O and <code><em>e</em><sup>iπ</sup> + 1 = 0</code>.</li>
+            <li>George Orwell wrote a quotation in his book 1984 which can written here using <code>&lt;q&gt;</code> — <q>Until they become conscious they
+            will never rebel, and until after they have rebelled they cannot become conscious.</q></li>
+            <li>A few words can be <ins>abruptly</ins> <code>&lt;ins&gt;</code>erted and some words
+            <del>might be</del> will be <code>&lt;del&gt;</code>eted</li>
+          </ul>
+        </section>
+        <section>
+          <h3 id="address-time">Address and Time</h3>
+          <p>tensei.css sets the <code>font-family</code> of <code>&lt;time&gt;</code> and
+          <code>&lt;address&gt;</code> to be monospace to avoid any possible visual ambiguities
+          between characters such as O, 0, 1, I, l.</p>
+          <p>The Hare Programming Language was announced publicly on
+          <time datetime="2022-04-25">April 25<sup>th</sup>, 2022</time>.
+          The <code>&lt;address&gt;</code> of the Hare Programming Language development mailing
+          list is</p>
+          <address><a href="mailto:~sircmpwn/hare-dev@lists.sr.ht">~sircmpwn/hare-dev@lists.sr.ht</a></address>
+        </section>
+        <section>
+          <h3 id="ordered-nested-list">Nested Lists</h3>
+          <p>The inline padding for the 1st level of a nested list is higher than the padding on all
+          the subsequent levels. tensei.css uses fluid spacing typography to reduce the padding on
+          the left on smaller devices like smartphones to conserve space.</p>
+          <pre tabindex="0"><code>:root {
+  --first-level-space: clamp(1.5em, calc(1.16em + 1.7vw), 2.25em);
+  --second-level-space: clamp(1em, calc(0.69em + 1.56vw), 1.69em);
+}</code></pre>
+          <ol type="1">
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+              <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                  <ol type="a">
+                    <li>List Item 1</li>
+                    <li>List Item 2</li>
+                      <ul>
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                      </ul>
+                    <li>List Item 3</li>
+                  </ol>
+                <li>List Item 3</li>
+              </ul>
+            <li>List Item 3</li>
+          </ol>
+        </section>
+        <section>
+          <h3 id="blockquotes">Blockqutoes</h3>
+          <p>A blockquote in HTML can be written in several ways. Here's a bare bones blockquote
+          with no <code>&lt;p&gt;</code> child tag with a <code>&lt;cite&gt;</code> tag.</p>
+          <blockquote>Stand in the ashes of a trillion dead souls, and ask the ghosts if honor
+          matters. The silence is your answer.</blockquote>
+          <p>— Javik, <cite>Mass Effect 3</cite></p>
+          <p>Here's a blockquote inside a <code>&lt;figure&gt;</code> with a <code>cite</code>
+          attribute, with multiple <code>&lt;p&gt;</code> tags and a <code>&lt;cite&gt;</code> tag
+          inside a <code>&lt;figcaption&gt;</code> tag.</p>
+          <figure>
+            <blockquote cite="https://old.reddit.com/r/IAmA/comments/36ru89/just_days_left_to_kill_mass_surveillance_under/crglgh2/">
+            <p>Nobody needs to justify why they "need" a right: the burden of justification falls on
+            the one seeking to infringe upon the right. But even if they did, you can't give away
+            the rights of others because they're not useful to you. More simply, the majority cannot
+            vote away the natural rights of the minority.</p>
+            <p>But even if they could, help them think for a moment about what they're saying.
+            Arguing that you don't care about the right to privacy because you have nothing to hide
+            is no different than saying you don't care about free speech because you have nothing to
+            say.</p>
+            </blockquote>
+            <figcaption><p>— Edward Snowden, <cite>Reddit AMA on <time datetime="2015-05-21">Thu, 21 May 2015</time></cite></p></figcaption>
+          </figure>
+          <p>When a <code>&lt;blockquote&gt;</code> is followed by a
+          <code>&lt;figcaption&gt;</code>, the <code>&lt;figcaption&gt;</code> is aligned to the
+          left.</p>
+        </section>
+        <section>
+          <h3 id="accordions">Accordions</h3>
+          <p>Accordions made using the <code>&lt;details&gt;</code> tag are useful for displaying
+          notices, FAQs, warnings, and other content that isn't directly related to the primary
+          content.</p>
+          <p>It's advised to use a block element inside <code>&lt;details&gt;</code>, even if it's a
+          <code>&lt;p&gt;</code> tag for a few words.</p>
+          <details>
+            <summary>NOTE</summary>
+            <p>A border has been drawn around <code>&lt;details&gt;</code> to highlight the extent
+            of the text inside it.</p>
+          </details>
+        </section>
+        <section>
+          <h3 id="definition-lists">Definition Lists</h3>
+          <p>tensei.css applies minimal adjustments to defintion lists to make them accessible.</p>
+          <p>A list of important directories in neovim</p>
+          <dl>
+            <dt>plugin</dt>
+            <dd><p>If needed, a global plugin can be used to extend the functionality of neovim for
+            all types of files. Neovim will <strong>load plugins automatically</strong> without us
+            needing to perform any Lua <code>require</code> calls in the <code>lua/</code> folder
+            as people usually do in their neovim config files.</p></dd>
+            <dt>after</dt>
+            <dt>after/syntax/</dt>
+            <dd><p>The <code>after</code> directory is read after all the directories in the
+            <code>runtimepath</code> are read. The <code>after/syntax/</code> will load syntax
+            files after the runtime path syntax files are loaded.</p></dd>
+            <dt><a rel="noopener noreferrer" target="_blank" href="https://neovim.io/doc/user/filetype.html#ftdetect">ftdetect</a></dt>
+            <dd>If you want to make neovim recognize a filetype that it doesn't, you can write
+            autocommands inside Lua scripts inside this directory to make neovim set a recognized
+            filetype.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h3 id="tables">Tables</h3>
+          <p>A table can either be a normal table or a grid table. A normal table is declared using
+          the <code>&lt;table&gt;</code> tag. The <code>border-bottom</code> of
+          <code>&lt;thead&gt;</code> and the <code>border-top</code> of <code>&lt;tfoot&gt;</code>
+          are bigger than the borders of the table cells.</p>
+          <table>
+          <thead>
+          <tr>
+          <th>lua (methods)</th>
+          <th>lua (no methods)</th>
+          <th>global</th>
+          <th>local</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td><code>vim.opt</code></td>
+          <td><code>vim.o</code></td>
+          <td>set</td>
+          <td>set</td>
+          </tr>
+          <tr>
+          <td><code>vim.opt_local</code></td>
+          <td><code>vim.bo</code>/<code>vim.wo</code></td>
+          <td>-</td>
+          <td>set</td>
+          </tr>
+          <tr>
+          <td><code>vim.opt_global</code></td>
+          <td><code>vim.go</code></td>
+          <td>set</td>
+          <td>-</td>
+          </tr>
+          </tbody>
+          </table>
+          <p>If a grid table is used, alternate rows have different colors. A grid table can be
+          created by using <code>&lt;table role="grid"&gt;</code>.</p>
+          <table role="grid">
+          <thead>
+          <tr>
+          <th>lua (methods)</th>
+          <th>lua (no methods)</th>
+          <th>global</th>
+          <th>local</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td><code>vim.opt</code></td>
+          <td><code>vim.o</code></td>
+          <td>set</td>
+          <td>set</td>
+          </tr>
+          <tr>
+          <td><code>vim.opt_local</code></td>
+          <td><code>vim.bo</code>/<code>vim.wo</code></td>
+          <td>-</td>
+          <td>set</td>
+          </tr>
+          <tr>
+          <td><code>vim.opt_global</code></td>
+          <td><code>vim.go</code></td>
+          <td>set</td>
+          <td>-</td>
+          </tr>
+          </tbody>
+          </table>
+        </section>
+        <section>
+          <h3 id="images">Images</h3>
+          <p>All images in tensei.css are block elements with a <code>max-width</code> of
+          <code>100%</code>.</p>
+          <h4>An image using only the <code>&lt;img&gt;</code> tag</h4>
+          <img src="static/images/monsoon.jpg" alt="green hills during a monsoon season with miniature
+          waterfalls from a distance" decoding="async" width="640" height="480">
+          <h4>An image inside a <code>&lt;figure&gt;</code> tag with a <code>&lt;figcaption&gt;</code></h4>
+          <figure>
+            <img alt="aerial view photography of white and red concrete house near village in
+            Iceland" src="static/images/vik.jpg" decoding="async" width="640" height="417">
+            <figcaption>
+              <p>Reyniskirkja Church, Vik, Iceland by <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@jonflobrant">Jon Flobrant</a>
+              on <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/photos/ljKaPW3hFZA">Unsplash</a></p>
+            </figcaption>
+          </figure>
+          <p><code>&lt;figcaption&gt;</code>s are aligned in the center when
+          <code>&lt;figure&gt;</code> contains images or any other element except <code>&lt;blockquote&gt;</code>.</p>
+        </section>
+      </section>
+      <section>
+        <h2 id="forms">Forms</h2>
+        <p>tensei.css makes minimal changes to forms, input elements, and buttons. These changes are mostly concerned with
+        consistency across web browsers and <abbr title="accessibility">a11y</abbr>.</p>
+        <p><strong>These are just test forms. They don't do anything.</strong></p>
+        <form>
+          <fieldset id="sign__up">
+            <legend>Sign Up</legend>
+            <div>
+              <select>
+                <option selected value="1">Title</option>
+                <option value="2">Mr</option>
+                <option value="3">Mrs</option>
+                <option value="4">Miss</option>
+                <option value="5">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="input__fullname">Full Name <small>(optional)</small></label>
+              <input id="input__fullname" type="text" placeholder="Full Name">
+            </div>
+            <div>
+              <label for="input__username">Username <small>(required)</small></label>
+              <input required id="input__username" type="text" placeholder="Username">
+            </div>
+            <div>
+              <label for="input__password">Password <small>(required)</small></label>
+              <input required minlength="10" id="input__password" type="password" placeholder="Enter Your Password" aria-describedby="password-validation">
+              <p id="password-validation"><small>Please enter at least 10 characters</small></p>
+            </div>
+            <div>
+              <label for="input__email">Email Address <small>(optional)</small></label>
+              <input id="input__email" type="email" placeholder="Email Address">
+              <p class="error-message" style="display: none;">Please enter a valid email address</p>
+
+<style>
+input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+  display: block !important;
+  color: var(--fg-del);
+}
+</style>
+              <p><small>Please note that merely showing a different color for invalid form input values isn't enough. We need
+              <a rel="noopener noreferrer" target="_blank" href="https://www.a11yproject.com/posts/how-to-write-accessible-forms/#provide-error-messages">textual representation</a>
+              and information to highlight that the input is invalid. This demo HTML page does not use the necessary JavaScript resources to build accessible form input validation.</small></p>
+            </div>
+            <div><label><input type="checkbox" id="checkbox" value="terms"> I agree to the <a href=
+            "#">terms and conditions</a></label>
+            </div>
+            <button type="submit">Sign Up</button>
+          </fieldset>
+          <fieldset id="contact__form">
+            <legend>Contact Us</legend>
+            <div>
+              <p>Please rate tensei.css</p>
+              <label for="radio1"><input id="radio1" name="radio" type="radio" checked>Perfect</label>
+              <label for="radio2"><input id="radio2" name="radio" type="radio">Good</label>
+              <label for="radio3"><input id="radio3" name="radio" type="radio">Average</label>
+              <label for="radio4"><input id="radio4" name="radio" type="radio">Bad</label>
+              <label for="radio5"><input id="radio5" name="radio" type="radio">Trash</label>
+            </div>
+            <div>
+              <label for="textarea">Suggestions For Improvements, If Any</label>
+              <textarea required id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </fieldset>
+        </form>
+      </section>
+    </article>
+  </main>
+  <hr>
+  <footer>
+    <p>tensei.css was created by <a href="https://microblog.ayushnix.com">Ayush Agarwal</a> and is
+    licensed under the <a rel="noopener noreferrer" target="_blank"
+    href="https://choosealicense.com/licenses/ncsa/">NCSA</a> license, which is similar to the MIT and the
+    BSD-3-Clause licenses.</p>
+    <p>This demo page is based on <a rel="noopener noreferrer" target="_blank" href="https://github.com/cbracco/html5-test-page">html5-test-page</a>
+    by <a rel="noopener noreferrer" target="_blank" href="https://github.com/cbracco">cbracco</a>.</p>
+  </footer>
+</body>
+</html>
