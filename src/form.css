@@ -270,4 +270,16 @@
       outline: none;
     }
   }
+
+  /* show error outline only when an input element is not being edited
+   * (:not(:focus)), when the placeholder value has been replaced with actual
+   * text (:not(:placeholder-shown)), and when the text inside the input
+   * element is, obviously, invalid
+   * this plays somewhat well with :required input elements and doesn't apply when
+   * the form is being loaded for the first time
+   * https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
+  input:not(:focus):not(:placeholder-shown):invalid {
+    border-radius: 1px;
+    outline: var(--fg-border-err) solid 3px;
+  }
 }
