@@ -103,4 +103,54 @@
   textarea:not([rows]) {
     height: 15ex;
   }
+
+  input[type="date"]:disabled,
+  input[type="datetime-local"]:disabled,
+  input[type="email"]:disabled,
+  input[type="month"]:disabled,
+  input[type="number"]:disabled,
+  input[type="password"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="text"]:disabled,
+  input[type="time"]:disabled,
+  input[type="url"]:disabled,
+  input[type="week"]:disabled,
+  textarea:disabled {
+    background-color: var(--bg-dis);
+    color: var(--fg-dis);
+  }
+
+  input[type="date"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="email"]:focus,
+  input[type="month"]:focus,
+  input[type="number"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="text"]:focus,
+  input[type="time"]:focus,
+  input[type="url"]:focus,
+  input[type="week"]:focus,
+  textarea:focus {
+    border-radius: 1px;
+    outline: var(--fg-link) solid 3px;
+  }
+
+  input[type="date"]:hover:not(:read-only),
+  input[type="datetime-local"]:hover:not(:read-only),
+  input[type="email"]:hover:not(:read-only),
+  input[type="month"]:hover:not(:read-only),
+  input[type="number"]:hover:not(:read-only),
+  input[type="password"]:hover:not(:read-only),
+  input[type="search"]:hover:not(:read-only),
+  input[type="tel"]:hover:not(:read-only),
+  input[type="text"]:hover:not(:read-only),
+  input[type="time"]:hover:not(:read-only),
+  input[type="url"]:hover:not(:read-only),
+  input[type="week"]:hover:not(:read-only),
+  textarea:hover:not(:read-only) {
+    border-color: var(--fg-text);
+  }
 }
