@@ -60,6 +60,13 @@
     padding: 3px 0.5em;
   }
 
+  /* keep labels vertically aligned with their corresponding input elements for
+   * better readability
+   * https://archive.is/u4BA1 */
+  label {
+    display: block;
+    padding: 0.75em 0;
+  }
 
   input[type="date"],
   input[type="datetime-local"],
