@@ -28,6 +28,10 @@
     cursor: not-allowed;
   }
 
+  :where(form, fieldset) > :where(div, p, ol, ul) {
+    margin: 0.75em 0;
+  }
+
   fieldset,
   form {
     margin: 1em 0;
