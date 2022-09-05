@@ -497,6 +497,12 @@ picture {
     }
   }
 
+  /* when jumping to a <h*> tag with an id, don't keep headings at the edge of
+   * the viewport at the top */
+  :where(h1, h2, h3, h4, h5, h6):target {
+    scroll-margin-top: 1ex;
+  }
+
   /* prevent halation possibilities by lowering contrast for bolder text
    * don't lower contrast for <kbd> because it has lesser font-size */
   :not(pre, code, samp) > table th,
