@@ -88,4 +88,19 @@
     color: var(--fg-text);
     display: block;
   }
+
+  /* it's better to set textarea width to 100% to prevent overflow and cols
+   * values that would make textarea overflow */
+  textarea {
+    max-width: 100%;
+    padding: 0.5em;
+    width: 100%;
+  }
+
+  /* ex units represent the height of the letter 'x' in a font and as such, it
+   * seems to be an appropriate unit for height
+   * this unit is widely supported across web browsers */
+  textarea:not([rows]) {
+    height: 15ex;
+  }
 }
