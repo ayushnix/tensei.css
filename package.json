@@ -1,0 +1,20 @@
+{
+  "name": "tensei-css",
+  "version": "0.1.0",
+  "description": "tensei.css is a lightweight classless CSS framework for static websites focusing on text, readability, accessibility, and reducing distractions",
+  "repository": {
+    "type": "git",
+    "url": "https://git.sr.ht/~ayushnix/tensei.css"
+  },
+  "homepage": "https://tensei.ayushnix.com",
+  "author": "ayushnix",
+  "license": "NCSA",
+  "bugs": {
+    "url": "https://todo.sr.ht/~ayushnix/tensei.css"
+  },
+  "keywords": [
+    "css",
+    "tensei.css",
+    "classless"
+  ]
+}
