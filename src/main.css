@@ -685,44 +685,6 @@ picture {
     max-width: 100%;
   }
 
-  /** -------------------------------- FORMS ------------------------------- **/
-
-  button,
-  input,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: inherit;
-  }
-
-  fieldset,
-  form {
-    margin: 1em 0;
-  }
-
-  fieldset,
-  legend {
-    border: 1px solid var(--fg-border);
-  }
-
-  legend {
-    border-radius: 0.25em;
-    padding: 1px 0.25em;
-  }
-
-  /* for consistency, change font-family of address, time, and anything where
-   * ambiguity in characters isn't desirable to monospace font */
-  input[type="date"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="email"],
-  input[type="month"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="week"] {
-    font-family: var(--mono-font);
-  }
-
   /** -------------------------------- FOCUS ------------------------------- **/
 
   /* make focus outlines accessible by increasing their width
