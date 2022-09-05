@@ -165,4 +165,25 @@
   input[type="color"] {
     padding: 0.25em;
   }
+
+  select {
+    background-color: var(--bg-text);
+    border-radius: 0.25em;
+    border: 1px solid var(--fg-border);
+    color: var(--fg-text);
+  }
+
+  select:focus {
+    border-radius: 1px;
+    outline: var(--fg-link) solid 3px;
+  }
+
+  select:disabled {
+    background-color: var(--bg-dis);
+    color: var(--fg-dis);
+  }
+
+  select:hover:not(:disabled) {
+    border-color: var(--fg-text);
+  }
 }
