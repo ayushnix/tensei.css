@@ -727,55 +727,6 @@ picture {
   }
 }
 
-/* ---------------------------------- PRINT --------------------------------- */
-
-@media print {
-  html {
-    /* never use sans-serif fonts on print unless it's possible to ensure that
-     * the PDF will be viewed on screen */
-    font: 100% / var(--height-text-print) var(--serif-font);
-  }
-
-  body {
-    background-color: var(--bg-print);
-    color: var(--fg-print);
-  }
-
-  a:any-link {
-    color: var(--fg-print);
-    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-    text-decoration-color: var(--fg-print);
-    text-underline-offset: 3px;
-    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
-  }
-
-  abbr[title],
-  u {
-    text-underline-offset: 3px;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: var(--height-head-print);
-  }
-
-  /* increase the inline padding and soft wrap the text inside <pre> if it
-   * overflows */
-  pre {
-    margin: 1em 0 1em 2em;
-    white-space: pre-wrap;
-  }
-
-  /* the list marker in summary isn't useful in print */
-  summary {
-    list-style-type: none;
-  }
-}
-
 /* ----------------------------- AGNOSTIC LAYOUT ---------------------------- */
 
 /* if <ol> or <ul> are explicitly assigned the role of "list", removed the
