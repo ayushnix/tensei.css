@@ -278,7 +278,7 @@
    * this plays somewhat well with :required input elements and doesn't apply when
    * the form is being loaded for the first time
    * https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
-  input:not(:focus):not(:placeholder-shown):invalid {
+  input:not(:focus, :placeholder-shown):invalid {
     border-radius: 1px;
     outline: var(--fg-border-err) solid 3px;
   }

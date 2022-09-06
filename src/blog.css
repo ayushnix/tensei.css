@@ -17,6 +17,7 @@
  * complete viewport width */
 body {
   padding: 0 16px;
+
   /* offer higher max-width to header, nav, and footer */
   max-width: 40rem;
 }

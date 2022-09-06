@@ -538,6 +538,21 @@ picture {
     line-height: var(--height-head);
   }
 
+  /* avoid using vanilla <abbr> because touch devices can't see the hover
+   * tooltip provided by <abbr>
+   * avoid using <u> for emphasis, use <strong> or <em>
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u */
+  a:any-link,
+  abbr[title],
+  u {
+    text-underline-offset: 0.25em;
+  }
+
+  /* make superscripts and subscripts with hyperlink children easier to tap */
+  :where(sub, sup) > a:any-link {
+    padding: 0.25em 0.5em;
+  }
+
   a:link {
     color: var(--fg-link);
     text-decoration-color: var(--fg-link-undl);
@@ -560,14 +575,6 @@ picture {
     text-decoration-color: var(--fg-link);
   }
 
-  a:visited:hover {
-    text-decoration-color: var(--fg-link-v-undl);
-  }
-
-  a:visited:active {
-    color: var(--fg-link-v);
-  }
-
   /* increase padding of hyperlinks inside heading tags to satisfy Google a11y
    * criteria for tap-targets */
   h2 > a:any-link {
@@ -588,6 +595,14 @@ picture {
 
   h6 > a:any-link {
     padding: 1em 0;
+  }
+
+  a:visited:hover {
+    text-decoration-color: var(--fg-link-v-undl);
+  }
+
+  a:visited:active {
+    color: var(--fg-link-v);
   }
 
   menu,
@@ -635,23 +650,8 @@ picture {
     border: unset;
   }
 
-  /* avoid using vanilla <abbr> because touch devices can't see the hover
-   * tooltip provided by <abbr>
-   * avoid using <u> for emphasis, use <strong> or <em>
-   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u */
-  a:any-link,
-  abbr[title],
-  u {
-    text-underline-offset: 0.25em;
-  }
-
   abbr {
     cursor: help;
-  }
-
-  /* make superscripts and subscripts with hyperlink children easier to tap */
-  :where(sub, sup) > a:any-link {
-    padding: 0.25em 0.5em;
   }
 
   :where(details, p, li, dd) > :where(code, del, ins, kbd, mark, samp, var) {
