@@ -48,6 +48,26 @@
         websites with a strong focus on text, readability, accessibility, and reducing
         distractions.</p>
       </section>
+      <details>
+        <summary>Toggle Table of Contents</summary>
+        <nav id="table-of-contents">
+          <h2 id="toc-nav">Table of Contents</h2>
+          <ol>
+            <li><a href="#basic-typography">Basic Typography</a></li>
+            <li><a href="#colors">Colors</a></li>
+            <li><a href="#links">Hyperlinks</a></li>
+            <li><a href="#inline-elements">Inline Elements</a></li>
+            <li><a href="#address-time">Address and Time</a></li>
+            <li><a href="#ordered-nested-list">Nested Lists</a></li>
+            <li><a href="#blockquotes">Blockquotes</a></li>
+            <li><a href="#accordions">Accordions</a></li>
+            <li><a href="#definition-lists">Definition Lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#forms">Forms</a></li>
+          </ol>
+        </nav>
+      </details>
       <section>
         <h2 id="basic-typography">Basic Typography</h2>
         <p>tensei.css respects user choice of fonts by using the following
@@ -91,7 +111,7 @@
         <h6>Heading 6 — <code>0.833rem</code></h6>
       </section>
       <section>
-        <h3 id="colors">Colors</h3>
+        <h2 id="colors">Colors</h2>
         <p>tensei.css makes judicious use of carefully chosen colors to meet
         the following objectives</p>
         <ul>
@@ -121,223 +141,217 @@
         hue to the primary hyperlinks colors to avoid unnecessary stimulation and distractions.</p>
       </section>
       <section>
-        <h2 id="other-html-elements">Other HTML Elements</h2>
-        <p>tensei.css uses simple but distinguishable styles for HTML elements.</p>
-        <section>
-          <h3 id="inline-elements">Inline Elements</h3>
-          <ul>
-            <li>Here's a <strong>strongly</strong> emphasized word</li>
-            <li>Here's another way to <em>emphasize</em> a word</li>
-            <li>We can highlight a word using the <mark>mark</mark> HTML tag</li>
-            <li>Here's some inline code: <code>local vinland = "Thorfinn"</code></li>
-            <li><var>$PATH</var> using the <code>&lt;var&gt;</code> tag</li>
-            <li>I've assigned <kbd>SUPER</kbd> + <kbd>w</kbd> to close an application</li>
-            <li><abbr title="HyperText Markup Language">HTML</abbr> is an abbreviation using
-            <code>&lt;abbr&gt;</code></li>
-            <li><dfn id="html-defintion"><abbr title="HyperText Markup Language">HTML</abbr></dfn>
-            can be defined using <code>&lt;dfn&gt;</code> as the standard markup language for
-            documents designed to be displayed in a web browser.</li>
-            <li>If a hyperlink is present in a superscript<sup><a href="#">note 1</a></sup>
-            or a subscript <sub><a href="#">note 2</a></sub>, the padding is slightly
-            increasing to make them easier to tap. If hyperlinks aren't present,
-            <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> behave as expected — H<sub>2</sub>O and <code><em>e</em><sup>iπ</sup> + 1 = 0</code>.</li>
-            <li>George Orwell wrote a quotation in his book 1984 which can written here using <code>&lt;q&gt;</code> — <q>Until they become conscious they
-            will never rebel, and until after they have rebelled they cannot become conscious.</q></li>
-            <li>A few words can be <ins>abruptly</ins> <code>&lt;ins&gt;</code>erted and some words
-            <del>might be</del> will be <code>&lt;del&gt;</code>eted</li>
-          </ul>
-        </section>
-        <section>
-          <h3 id="address-time">Address and Time</h3>
-          <p>tensei.css sets the <code>font-family</code> of <code>&lt;time&gt;</code> and
-          <code>&lt;address&gt;</code> to be monospace to avoid any possible visual ambiguities
-          between characters such as O, 0, 1, I, l.</p>
-          <p>The Hare Programming Language was announced publicly on
-          <time datetime="2022-04-25">April 25<sup>th</sup>, 2022</time>.
-          The <code>&lt;address&gt;</code> of the Hare Programming Language development mailing
-          list is</p>
-          <address><a href="mailto:~sircmpwn/hare-dev@lists.sr.ht">~sircmpwn/hare-dev@lists.sr.ht</a></address>
-        </section>
-        <section>
-          <h3 id="ordered-nested-list">Nested Lists</h3>
-          <p>The inline padding for the 1st level of a nested list is higher than the padding on all
-          the subsequent levels. tensei.css uses fluid spacing typography to reduce the padding on
-          the left on smaller devices like smartphones to conserve space.</p>
-          <pre tabindex="0"><code>:root {
+        <h2 id="inline-elements">Inline Elements</h2>
+        <ul>
+          <li>Here's a <strong>strongly</strong> emphasized word</li>
+          <li>Here's another way to <em>emphasize</em> a word</li>
+          <li>We can highlight a word using the <mark>mark</mark> HTML tag</li>
+          <li>Here's some inline code: <code>local vinland = "Thorfinn"</code></li>
+          <li><var>$PATH</var> using the <code>&lt;var&gt;</code> tag</li>
+          <li>I've assigned <kbd>SUPER</kbd> + <kbd>w</kbd> to close an application</li>
+          <li><abbr title="HyperText Markup Language">HTML</abbr> is an abbreviation using
+          <code>&lt;abbr&gt;</code></li>
+          <li><dfn id="html-defintion"><abbr title="HyperText Markup Language">HTML</abbr></dfn>
+          can be defined using <code>&lt;dfn&gt;</code> as the standard markup language for
+          documents designed to be displayed in a web browser.</li>
+          <li>If a hyperlink is present in a superscript<sup><a href="#">note 1</a></sup>
+          or a subscript <sub><a href="#">note 2</a></sub>, the padding is slightly
+          increasing to make them easier to tap. If hyperlinks aren't present,
+          <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> behave as expected — H<sub>2</sub>O and <code><em>e</em><sup>iπ</sup> + 1 = 0</code>.</li>
+          <li>George Orwell wrote a quotation in his book 1984 which can written here using <code>&lt;q&gt;</code> — <q>Until they become conscious they
+          will never rebel, and until after they have rebelled they cannot become conscious.</q></li>
+          <li>A few words can be <ins>abruptly</ins> <code>&lt;ins&gt;</code>erted and some words
+          <del>might be</del> will be <code>&lt;del&gt;</code>eted</li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="address-time">Address and Time</h2>
+        <p>tensei.css sets the <code>font-family</code> of <code>&lt;time&gt;</code> and
+        <code>&lt;address&gt;</code> to be monospace to avoid any possible visual ambiguities
+        between characters such as O, 0, 1, I, l.</p>
+        <p>The Hare Programming Language was announced publicly on
+        <time datetime="2022-04-25">April 25<sup>th</sup>, 2022</time>.
+        The <code>&lt;address&gt;</code> of the Hare Programming Language development mailing
+        list is</p>
+        <address><a href="mailto:~sircmpwn/hare-dev@lists.sr.ht">~sircmpwn/hare-dev@lists.sr.ht</a></address>
+      </section>
+      <section>
+        <h2 id="ordered-nested-list">Nested Lists</h2>
+        <p>The inline padding for the 1st level of a nested list is higher than the padding on all
+        the subsequent levels. tensei.css uses fluid spacing typography to reduce the padding on
+        the left on smaller devices like smartphones to conserve space.</p>
+        <pre tabindex="0"><code>:root {
   --first-level-space: clamp(1.5em, calc(1.16em + 1.7vw), 2.25em);
   --second-level-space: clamp(1em, calc(0.69em + 1.56vw), 1.69em);
 }</code></pre>
-          <ol type="1">
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-              <ul>
-                <li>List Item 1</li>
-                <li>List Item 2</li>
-                  <ol type="a">
-                    <li>List Item 1</li>
-                    <li>List Item 2</li>
-                      <ul>
-                        <li>List Item 1</li>
-                        <li>List Item 2</li>
-                        <li>List Item 3</li>
-                      </ul>
-                    <li>List Item 3</li>
-                  </ol>
-                <li>List Item 3</li>
-              </ul>
-            <li>List Item 3</li>
-          </ol>
-        </section>
-        <section>
-          <h3 id="blockquotes">Blockqutoes</h3>
-          <p>A blockquote in HTML can be written in several ways. Here's a bare bones blockquote
-          with no <code>&lt;p&gt;</code> child tag with a <code>&lt;cite&gt;</code> tag.</p>
-          <blockquote>Stand in the ashes of a trillion dead souls, and ask the ghosts if honor
-          matters. The silence is your answer.</blockquote>
-          <p>— Javik, <cite>Mass Effect 3</cite></p>
-          <p>Here's a blockquote inside a <code>&lt;figure&gt;</code> with a <code>cite</code>
-          attribute, with multiple <code>&lt;p&gt;</code> tags and a <code>&lt;cite&gt;</code> tag
-          inside a <code>&lt;figcaption&gt;</code> tag.</p>
-          <figure>
-            <blockquote cite="https://old.reddit.com/r/IAmA/comments/36ru89/just_days_left_to_kill_mass_surveillance_under/crglgh2/">
-            <p>Nobody needs to justify why they "need" a right: the burden of justification falls on
-            the one seeking to infringe upon the right. But even if they did, you can't give away
-            the rights of others because they're not useful to you. More simply, the majority cannot
-            vote away the natural rights of the minority.</p>
-            <p>But even if they could, help them think for a moment about what they're saying.
-            Arguing that you don't care about the right to privacy because you have nothing to hide
-            is no different than saying you don't care about free speech because you have nothing to
-            say.</p>
-            </blockquote>
-            <figcaption><p>— Edward Snowden, <cite>Reddit AMA on <time datetime="2015-05-21">Thu, 21 May 2015</time></cite></p></figcaption>
-          </figure>
-          <p>When a <code>&lt;blockquote&gt;</code> is followed by a
-          <code>&lt;figcaption&gt;</code>, the <code>&lt;figcaption&gt;</code> is aligned to the
-          left.</p>
-        </section>
-        <section>
-          <h3 id="accordions">Accordions</h3>
-          <p>Accordions made using the <code>&lt;details&gt;</code> tag are useful for displaying
-          notices, FAQs, warnings, and other content that isn't directly related to the primary
-          content.</p>
-          <p>It's advised to use a block element inside <code>&lt;details&gt;</code>, even if it's a
-          <code>&lt;p&gt;</code> tag for a few words.</p>
-          <details>
-            <summary>NOTE</summary>
-            <p>A border has been drawn around <code>&lt;details&gt;</code> to highlight the extent
-            of the text inside it.</p>
-          </details>
-        </section>
-        <section>
-          <h3 id="definition-lists">Definition Lists</h3>
-          <p>tensei.css applies minimal adjustments to defintion lists to make them accessible.</p>
-          <p>A list of important directories in neovim</p>
-          <dl>
-            <dt>plugin</dt>
-            <dd><p>If needed, a global plugin can be used to extend the functionality of neovim for
-            all types of files. Neovim will <strong>load plugins automatically</strong> without us
-            needing to perform any Lua <code>require</code> calls in the <code>lua/</code> folder
-            as people usually do in their neovim config files.</p></dd>
-            <dt>after</dt>
-            <dt>after/syntax/</dt>
-            <dd><p>The <code>after</code> directory is read after all the directories in the
-            <code>runtimepath</code> are read. The <code>after/syntax/</code> will load syntax
-            files after the runtime path syntax files are loaded.</p></dd>
-            <dt><a rel="noopener noreferrer" target="_blank" href="https://neovim.io/doc/user/filetype.html#ftdetect">ftdetect</a></dt>
-            <dd>If you want to make neovim recognize a filetype that it doesn't, you can write
-            autocommands inside Lua scripts inside this directory to make neovim set a recognized
-            filetype.</dd>
-          </dl>
-        </section>
-
-        <section>
-          <h3 id="tables">Tables</h3>
-          <p>A table can either be a normal table or a grid table. A normal table is declared using
-          the <code>&lt;table&gt;</code> tag. The <code>border-bottom</code> of
-          <code>&lt;thead&gt;</code> and the <code>border-top</code> of <code>&lt;tfoot&gt;</code>
-          are bigger than the borders of the table cells.</p>
-          <table>
-          <thead>
-          <tr>
-          <th>lua (methods)</th>
-          <th>lua (no methods)</th>
-          <th>global</th>
-          <th>local</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          <td><code>vim.opt</code></td>
-          <td><code>vim.o</code></td>
-          <td>set</td>
-          <td>set</td>
-          </tr>
-          <tr>
-          <td><code>vim.opt_local</code></td>
-          <td><code>vim.bo</code>/<code>vim.wo</code></td>
-          <td>-</td>
-          <td>set</td>
-          </tr>
-          <tr>
-          <td><code>vim.opt_global</code></td>
-          <td><code>vim.go</code></td>
-          <td>set</td>
-          <td>-</td>
-          </tr>
-          </tbody>
-          </table>
-          <p>If a grid table is used, alternate rows have different colors. A grid table can be
-          created by using <code>&lt;table role="grid"&gt;</code>.</p>
-          <table role="grid">
-          <thead>
-          <tr>
-          <th>lua (methods)</th>
-          <th>lua (no methods)</th>
-          <th>global</th>
-          <th>local</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          <td><code>vim.opt</code></td>
-          <td><code>vim.o</code></td>
-          <td>set</td>
-          <td>set</td>
-          </tr>
-          <tr>
-          <td><code>vim.opt_local</code></td>
-          <td><code>vim.bo</code>/<code>vim.wo</code></td>
-          <td>-</td>
-          <td>set</td>
-          </tr>
-          <tr>
-          <td><code>vim.opt_global</code></td>
-          <td><code>vim.go</code></td>
-          <td>set</td>
-          <td>-</td>
-          </tr>
-          </tbody>
-          </table>
-        </section>
-        <section>
-          <h3 id="images">Images</h3>
-          <p>All images in tensei.css are block elements with a <code>max-width</code> of
-          <code>100%</code>.</p>
-          <h4>An image using only the <code>&lt;img&gt;</code> tag</h4>
-          <img src="static/images/monsoon.jpg" alt="green hills during a monsoon season with miniature
-          waterfalls from a distance" decoding="async" width="640" height="480">
-          <h4>An image inside a <code>&lt;figure&gt;</code> tag with a <code>&lt;figcaption&gt;</code></h4>
-          <figure>
-            <img alt="aerial view photography of white and red concrete house near village in
-            Iceland" src="static/images/vik.jpg" decoding="async" width="640" height="417">
-            <figcaption>
-              <p>Reyniskirkja Church, Vik, Iceland by <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@jonflobrant">Jon Flobrant</a>
-              on <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/photos/ljKaPW3hFZA">Unsplash</a></p>
-            </figcaption>
-          </figure>
-          <p><code>&lt;figcaption&gt;</code>s are aligned in the center when
-          <code>&lt;figure&gt;</code> contains images or any other element except <code>&lt;blockquote&gt;</code>.</p>
-        </section>
+        <ol type="1">
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+            <ul>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+                <ol type="a">
+                  <li>List Item 1</li>
+                  <li>List Item 2</li>
+                    <ul>
+                      <li>List Item 1</li>
+                      <li>List Item 2</li>
+                      <li>List Item 3</li>
+                    </ul>
+                  <li>List Item 3</li>
+                </ol>
+              <li>List Item 3</li>
+            </ul>
+          <li>List Item 3</li>
+        </ol>
+      </section>
+      <section>
+        <h2 id="blockquotes">Blockquotes</h2>
+        <p>A blockquote in HTML can be written in several ways. Here's a bare bones blockquote
+        with no <code>&lt;p&gt;</code> child tag with a <code>&lt;cite&gt;</code> tag.</p>
+        <blockquote>Stand in the ashes of a trillion dead souls, and ask the ghosts if honor
+        matters. The silence is your answer.</blockquote>
+        <p>— Javik, <cite>Mass Effect 3</cite></p>
+        <p>Here's a blockquote inside a <code>&lt;figure&gt;</code> with a <code>cite</code>
+        attribute, with multiple <code>&lt;p&gt;</code> tags and a <code>&lt;cite&gt;</code> tag
+        inside a <code>&lt;figcaption&gt;</code> tag.</p>
+        <figure>
+          <blockquote cite="https://old.reddit.com/r/IAmA/comments/36ru89/just_days_left_to_kill_mass_surveillance_under/crglgh2/">
+          <p>Nobody needs to justify why they "need" a right: the burden of justification falls on
+          the one seeking to infringe upon the right. But even if they did, you can't give away
+          the rights of others because they're not useful to you. More simply, the majority cannot
+          vote away the natural rights of the minority.</p>
+          <p>But even if they could, help them think for a moment about what they're saying.
+          Arguing that you don't care about the right to privacy because you have nothing to hide
+          is no different than saying you don't care about free speech because you have nothing to
+          say.</p>
+          </blockquote>
+          <figcaption><p>— Edward Snowden, <cite>Reddit AMA on <time datetime="2015-05-21">Thu, 21 May 2015</time></cite></p></figcaption>
+        </figure>
+        <p>When a <code>&lt;blockquote&gt;</code> is followed by a
+        <code>&lt;figcaption&gt;</code>, the <code>&lt;figcaption&gt;</code> is aligned to the
+        left.</p>
+      </section>
+      <section>
+        <h2 id="accordions">Accordions</h2>
+        <p>Accordions made using the <code>&lt;details&gt;</code> tag are useful for displaying
+        notices, FAQs, warnings, and other content that isn't directly related to the primary
+        content.</p>
+        <p>It's advised to use a block element inside <code>&lt;details&gt;</code>, even if it's a
+        <code>&lt;p&gt;</code> tag for a few words.</p>
+        <details>
+          <summary>NOTE</summary>
+          <p>A border has been drawn around <code>&lt;details&gt;</code> to highlight the extent
+          of the text inside it.</p>
+        </details>
+      </section>
+      <section>
+        <h2 id="definition-lists">Definition Lists</h2>
+        <p>tensei.css applies minimal adjustments to defintion lists to make them accessible.</p>
+        <p>A list of important directories in neovim</p>
+        <dl>
+          <dt>plugin</dt>
+          <dd><p>If needed, a global plugin can be used to extend the functionality of neovim for
+          all types of files. Neovim will <strong>load plugins automatically</strong> without us
+          needing to perform any Lua <code>require</code> calls in the <code>lua/</code> folder
+          as people usually do in their neovim config files.</p></dd>
+          <dt>after</dt>
+          <dt>after/syntax/</dt>
+          <dd><p>The <code>after</code> directory is read after all the directories in the
+          <code>runtimepath</code> are read. The <code>after/syntax/</code> will load syntax
+          files after the runtime path syntax files are loaded.</p></dd>
+          <dt><a rel="noopener noreferrer" target="_blank" href="https://neovim.io/doc/user/filetype.html#ftdetect">ftdetect</a></dt>
+          <dd>If you want to make neovim recognize a filetype that it doesn't, you can write
+          autocommands inside Lua scripts inside this directory to make neovim set a recognized
+          filetype.</dd>
+        </dl>
+      </section>
+      <section>
+        <h2 id="tables">Tables</h2>
+        <p>A table can either be a normal table or a grid table. A normal table is declared using
+        the <code>&lt;table&gt;</code> tag. The <code>border-bottom</code> of
+        <code>&lt;thead&gt;</code> and the <code>border-top</code> of <code>&lt;tfoot&gt;</code>
+        are bigger than the borders of the table cells.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>lua (methods)</th>
+        <th>lua (no methods)</th>
+        <th>global</th>
+        <th>local</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>vim.opt</code></td>
+        <td><code>vim.o</code></td>
+        <td>set</td>
+        <td>set</td>
+        </tr>
+        <tr>
+        <td><code>vim.opt_local</code></td>
+        <td><code>vim.bo</code>/<code>vim.wo</code></td>
+        <td>-</td>
+        <td>set</td>
+        </tr>
+        <tr>
+        <td><code>vim.opt_global</code></td>
+        <td><code>vim.go</code></td>
+        <td>set</td>
+        <td>-</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>If a grid table is used, alternate rows have different colors. A grid table can be
+        created by using <code>&lt;table role="grid"&gt;</code>.</p>
+        <table role="grid">
+        <thead>
+        <tr>
+        <th>lua (methods)</th>
+        <th>lua (no methods)</th>
+        <th>global</th>
+        <th>local</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>vim.opt</code></td>
+        <td><code>vim.o</code></td>
+        <td>set</td>
+        <td>set</td>
+        </tr>
+        <tr>
+        <td><code>vim.opt_local</code></td>
+        <td><code>vim.bo</code>/<code>vim.wo</code></td>
+        <td>-</td>
+        <td>set</td>
+        </tr>
+        <tr>
+        <td><code>vim.opt_global</code></td>
+        <td><code>vim.go</code></td>
+        <td>set</td>
+        <td>-</td>
+        </tr>
+        </tbody>
+        </table>
+      </section>
+      <section>
+        <h2 id="images">Images</h2>
+        <p>All images in tensei.css are block elements with a <code>max-width</code> of <code>100%</code>.</p>
+        <h3>An image using only the <code>&lt;img&gt;</code> tag</h3>
+        <img src="static/images/monsoon.jpg" alt="green hills during a monsoon season with miniature
+        waterfalls from a distance" decoding="async" width="640" height="480">
+        <h3>An image inside a <code>&lt;figure&gt;</code> tag with a <code>&lt;figcaption&gt;</code></h3>
+        <figure>
+          <img alt="aerial view photography of white and red concrete house near village in
+          Iceland" src="static/images/vik.jpg" decoding="async" width="640" height="417">
+          <figcaption>
+            <p>Reyniskirkja Church, Vik, Iceland by <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@jonflobrant">Jon Flobrant</a>
+            on <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/photos/ljKaPW3hFZA">Unsplash</a></p>
+          </figcaption>
+        </figure>
+        <p><code>&lt;figcaption&gt;</code>s are aligned in the center when
+        <code>&lt;figure&gt;</code> contains images or any other element except <code>&lt;blockquote&gt;</code>.</p>
       </section>
       <section>
         <h2 id="forms">Forms</h2>
