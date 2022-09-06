@@ -1,0 +1,17 @@
+/* css-tensei: blog.css
+ * SPDX-License-Identifier: NCSA */
+
+/* this file consists rules for a simple single column blog layout
+ * it assumes that the HTML page it's used follows semantic HTML5 layout
+ * structure and uses tags like <header>, <nav>, <main>, and <footer> inside
+ * <body> */
+
+/* if <ol> or <ul> are explicitly assigned the role of "list", removed the
+ * list-style-type markers and padding
+ *
+ * this layout is usually used to construct links inside <nav> using flex,
+ * inline-flex, and inline-block layout */
+:where(ol, ul)[role="list"] {
+  list-style-type: none;
+  padding: 0;
+}
