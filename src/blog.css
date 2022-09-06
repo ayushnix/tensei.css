@@ -13,5 +13,16 @@
  * inline-flex, and inline-block layout */
 :where(ol, ul)[role="list"] {
   list-style-type: none;
+  margin: 0;
   padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 0.5em;
+}
+
+/* increase padding to make box size at least 48px for hyperlinks in navigation
+ * menus because they're tap targets */
+:where(ol, ul)[role="list"] a:any-link {
+  padding: 0.75em 0.25em;
 }
