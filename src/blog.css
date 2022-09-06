@@ -6,6 +6,52 @@
  * structure and uses tags like <header>, <nav>, <main>, and <footer> inside
  * <body> */
 
+/* add some absolute padding to the edge of the screen
+ * we've added padding in pixels because this space shouldn't scale up or down
+ * with the font-size
+ * this acts somewhat like max(90%, 40rem) and ensures that there's some room
+ * at the edge of the screen on mobile devices for gesture navigation
+ *
+ * this padding won't be added to the wiki demo page because some people like
+ * to use header banners at the top of the page which stretch to occupy the
+ * complete viewport width */
+body {
+  padding: 0 16px;
+  /* offer higher max-width to header, nav, and footer */
+  max-width: 40rem;
+}
+
+body > :where(header, footer) {
+  text-align: center;
+}
+
+/* 60ch, which is approximately 20-30% larger than the actual characters in
+ * proportional typefaces, roughly corresponds to 37.5rem in my testing with
+ * Inter sans-serif font
+ * SC 1.4.8 advises that
+ * - width is no more than 80 characters or glyphs
+ * https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html
+ *
+ * however, on a closer inspection, it mentions two techniques to fulfill this requirement
+ * - G204: not interfering with the user agent's reflow of text as the viewing
+ *   window is narrowed
+ *   https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/G204
+ * - C20: Using relative measurements to set column widths so that lines can
+ *   average 80 characters or less when the browser is resized
+ *   https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/C20
+ *
+ * this suggests that WCAG SC 1.4.8 doesn't actually inhibit line length to 80
+ * characters. they just recommend to use relative measurements for length so
+ * that a user can resize the browser window and limit the number of characters
+ * to 80 or less if needed
+ *
+ * we'll still limit ourselves to 80 characters or less by default by
+ * specifying max-width for body text as 37.5rem */
+body > main {
+  margin: 0 auto;
+  max-width: 37.5rem;
+}
+
 /* if <ol> or <ul> are explicitly assigned the role of "list", removed the
  * list-style-type markers and padding
  *
